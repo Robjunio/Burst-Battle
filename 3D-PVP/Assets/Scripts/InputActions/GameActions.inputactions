@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aim",
-                    "type": "Value",
-                    "id": "4dd93a6f-ba18-426f-a341-4d547825d671",
-                    "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone,NormalizeVector2",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "91d3e04d-3768-4aab-85af-1ed497387bfc",
@@ -56,6 +47,28 @@
                     "name": "",
                     "id": "cc8135e2-2ad7-4301-9e8e-3af59f3e266c",
                     "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e736798-afbe-4de8-be15-f259db52d41f",
+                    "path": "<DualSenseGamepadHID>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c21b4bd8-a78a-4c9c-94a1-0267dda877ff",
+                    "path": "<AndroidGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -159,28 +172,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0c76ce7c-5ddb-4361-a237-7e9ae60550d5",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d150c933-bd33-4c09-87d4-d44d195dff9d",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
