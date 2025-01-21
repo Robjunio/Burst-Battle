@@ -8,13 +8,10 @@ namespace Player
         [SerializeField] Transform attackSpawn;
         private IPowerUp powerUpEquipped;
 
-        private Rigidbody _rb;
-
-        private Vector2 _aim = Vector3.up;
+        private Vector3 _aim = Vector3.forward;
 
         private void Awake()
         {
-            TryGetComponent(out _rb);
             powerUpEquipped = GetComponent<IPowerUp>();
         }
 

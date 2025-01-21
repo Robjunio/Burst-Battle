@@ -10,13 +10,14 @@ public class Soap : MonoBehaviour, IPowerUp
         SoapPrefab = Resources.Load<GameObject>("Prefabs/Soap");
     }
 
-    public void UsePowerUp(Transform spawn, Vector2 dir)
+    public void UsePowerUp(Transform spawn, Vector3 dir)
     {
-        var powerUp = Instantiate(SoapPrefab, new Vector3(spawn.position.x + dir.x, spawn.position.y, spawn.position.z + dir.y), Quaternion.Euler(90, 0, 0));
+        dir = dir.normalized;
+        var powerUp = Instantiate(SoapPrefab, spawn.position + dir, Quaternion.Euler(90, 0, 0));
 
         Rigidbody body = powerUp.GetComponent<Rigidbody>();
-
-        body.AddForce(20 * dir, ForceMode.Impulse);
+        print(dir);
+        body.AddForce(15f * dir, ForceMode.Impulse);
 
         durability--;
     }
