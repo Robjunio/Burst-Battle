@@ -30,7 +30,6 @@ namespace Player
 
         public void GetMovement(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Movement Caught");
             Vector2 dir = ctx.ReadValue<Vector2>();
 
             _input = new Vector3(dir.x, 0, dir.y);
