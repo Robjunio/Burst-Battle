@@ -9,7 +9,16 @@ public class PlayerController : MonoBehaviour
         var list = FindObjectsOfType<PlayerController>();
         gameObject.name = "Player " + list.Length.ToString();
     }
+
     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Death"))
         {

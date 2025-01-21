@@ -10,7 +10,7 @@ namespace Player
 
         private Rigidbody _rb;
 
-        private Vector2 _aim = new Vector3(0 , 0 , 1);
+        private Vector2 _aim = Vector3.up;
 
         private void Awake()
         {
