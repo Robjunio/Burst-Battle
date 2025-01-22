@@ -17,6 +17,8 @@ namespace Player
         private float _timmer;
         private float _dashCooldown = 0.5f;
 
+        private Vector3 currentScale = Vector3.one;
+
         private void Awake()
         {
             TryGetComponent(out _rb);
@@ -48,6 +50,8 @@ namespace Player
                 return;
             }
 
+            currentScale = transform.localScale;
+
             _rb.velocity = Vector3.zero;
             if (_input != Vector3.zero)
             {
@@ -60,11 +64,11 @@ namespace Player
 
             _timmer = Time.time;
             _canDash = false;
-            _rb.mass = 10;
+            _rb.mass = 10 * transform.localScale.x * 1.5f;
 
             transform.DOScale(transform.localScale * 1.5f, 0.4f).onComplete = () =>
             {
-                transform.DOScale(Vector3.one, 0.05f);
+                transform.DOScale(currentScale, 0.05f);
                 _rb.mass = 1;
             };
         }

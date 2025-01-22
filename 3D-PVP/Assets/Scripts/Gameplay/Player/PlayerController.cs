@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+        if (collision.gameObject.CompareTag("Bubble"))
+        {
+            HandlerBubbleAttack();
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -24,5 +29,22 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+    }
+
+    private void HandlerBubbleAttack()
+    {
+        if(transform.localScale == new Vector3(2, 2, 2))
+        {
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+        }
+    }
+
+    private void OnDisable()
+    {
+        transform.localScale = Vector3.one;
     }
 }
