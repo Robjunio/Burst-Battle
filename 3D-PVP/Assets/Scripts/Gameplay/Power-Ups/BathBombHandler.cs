@@ -37,4 +37,9 @@ public class BathBombHandler : MonoBehaviour, IPowerUp
             return false;
         }
     }
+
+    public void ResetDurability()
+    {
+        durability = 1;
+    }
 }

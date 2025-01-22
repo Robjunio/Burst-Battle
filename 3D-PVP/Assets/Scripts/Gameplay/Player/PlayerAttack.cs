@@ -10,11 +10,6 @@ namespace Player
 
         private Vector3 _aim = Vector3.forward;
 
-        private void Awake()
-        {
-            powerUpEquipped = GetComponent<IPowerUp>();
-        }
-
         public void GetAim(InputAction.CallbackContext ctx)
         {
             Vector2 dir = ctx.ReadValue<Vector2>();
@@ -26,14 +21,17 @@ namespace Player
 
         public void TryAttack(InputAction.CallbackContext context)
         {
-            if (powerUpEquipped != null)
+            if(context.phase == InputActionPhase.Started)
             {
-                powerUpEquipped.UsePowerUp(attackSpawn, _aim);
-                if (!powerUpEquipped.CheckDurability())
+                if (powerUpEquipped != null)
                 {
-                    powerUpEquipped.DestroyPowerUp();
+                    powerUpEquipped.UsePowerUp(attackSpawn, _aim);
+                    if (!powerUpEquipped.CheckDurability())
+                    {
+                        powerUpEquipped.DestroyPowerUp();
 
-                    powerUpEquipped = null;
+                        powerUpEquipped = null;
+                    }
                 }
             }
         }

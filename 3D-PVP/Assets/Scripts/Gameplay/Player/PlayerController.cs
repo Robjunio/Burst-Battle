@@ -1,11 +1,11 @@
 using Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     PlayerAttack attackSystem;
+    int bubbleCount;
+    
     private void Awake()
     {
         var list = FindObjectsOfType<PlayerController>();
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Death"))
         {
+            print("Died");
             this.gameObject.SetActive(false);
         }
 
@@ -46,8 +47,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandlerBubbleAttack()
     {
-        if(transform.localScale.x >= 2f)
+        bubbleCount++;
+        if(bubbleCount >= 3)
         {
+            print("Died");
             this.gameObject.SetActive(false);
         }
         else
@@ -59,5 +62,6 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         transform.localScale = Vector3.one;
+        bubbleCount = 0;
     }
 }

@@ -16,7 +16,7 @@ public class Soap : MonoBehaviour, IPowerUp
         var powerUp = Instantiate(SoapPrefab, spawn.position + dir, Quaternion.Euler(90, 0, 0));
 
         Rigidbody body = powerUp.GetComponent<Rigidbody>();
-        print(dir);
+
         body.AddForce(15f * dir, ForceMode.Impulse);
 
         durability--;
@@ -25,6 +25,11 @@ public class Soap : MonoBehaviour, IPowerUp
     public void DestroyPowerUp()
     {
         this.enabled = false;
+    }
+
+    public void ResetDurability()
+    {
+        durability = 1;
     }
 
     public bool CheckDurability()

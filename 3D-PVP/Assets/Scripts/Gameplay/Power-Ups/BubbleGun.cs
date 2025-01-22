@@ -38,6 +38,11 @@ public class BubbleGun : MonoBehaviour, IPowerUp
             return false;
         }
     }
+    
+    public void ResetDurability()
+    {
+        durability = 12;
+    }
 
     private Vector3 BubbleAimDiff(Vector3 aim)
     {

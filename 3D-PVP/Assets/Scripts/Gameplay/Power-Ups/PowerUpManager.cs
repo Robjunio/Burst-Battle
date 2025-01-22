@@ -57,7 +57,11 @@ public class PowerUpManager : MonoBehaviour
         int randomPowerUpID = Random.Range(0, powerUps.Count);
 
         var obj = Instantiate(PowerUpPrefab, position, Quaternion.identity);
-        obj.GetComponent<PowerUp>().SetPower(powerUps[randomPowerUpID]);
+
+        var powerUp = obj.GetComponent<PowerUp>();
+
+        powerUps[randomPowerUpID].ResetDurability();
+        powerUp.SetPower(powerUps[randomPowerUpID]);
 
         currentPowerUpsOnMap++;
     }

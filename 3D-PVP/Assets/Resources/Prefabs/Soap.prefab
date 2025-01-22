@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7489481526859594830}
   - component: {fileID: 3386323093165287133}
   - component: {fileID: 7319902793629064905}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Soap
   m_TagString: Death
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
