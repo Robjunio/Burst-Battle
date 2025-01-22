@@ -1,12 +1,17 @@
+using Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    PlayerAttack attackSystem;
     private void Awake()
     {
         var list = FindObjectsOfType<PlayerController>();
+
+        TryGetComponent(out attackSystem);
+
         gameObject.name = "Player " + list.Length.ToString();
     }
 
@@ -16,6 +21,7 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
         if (collision.gameObject.CompareTag("Bubble"))
         {
             HandlerBubbleAttack();
@@ -29,11 +35,18 @@ public class PlayerController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
+        if (collision.gameObject.CompareTag("PowerUp"))
+        {
+            var powerUp = collision.gameObject.GetComponent<PowerUp>();
+            attackSystem.SetPowerUp(powerUp.GetPower());
+            Destroy(collision.gameObject);
+        }
     }
 
     private void HandlerBubbleAttack()
     {
-        if(transform.localScale == new Vector3(2, 2, 2))
+        if(transform.localScale.x >= 2f)
         {
             this.gameObject.SetActive(false);
         }

@@ -24,7 +24,6 @@ namespace Player
             _aim = new Vector3(dir.x, 0, dir.y);
         }
 
-
         public void TryAttack(InputAction.CallbackContext context)
         {
             if (powerUpEquipped != null)
@@ -36,6 +35,14 @@ namespace Player
 
                     powerUpEquipped = null;
                 }
+            }
+        }
+
+        public void SetPowerUp(IPowerUp power)
+        {
+            if (powerUpEquipped == null)
+            {
+                powerUpEquipped = power;
             }
         }
     }
