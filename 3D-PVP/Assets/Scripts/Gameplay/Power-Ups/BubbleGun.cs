@@ -10,11 +10,12 @@ public class BubbleGun : MonoBehaviour, IPowerUp
         BubblePrefab = Resources.Load<GameObject>("Prefabs/Bubble");
     }
 
-    public void UsePowerUp(Transform spawn, Vector3 dir)
+    public void UsePowerUp(Transform spawn, Vector3 dir, string player)
     {
         dir = BubbleAimDiff(dir);
         var powerUp = Instantiate(BubblePrefab, spawn.position + dir, Quaternion.identity);
 
+        powerUp.name = player;
         Rigidbody body = powerUp.GetComponent<Rigidbody>();
 
         body.AddForce(2.5f * dir, ForceMode.Impulse);

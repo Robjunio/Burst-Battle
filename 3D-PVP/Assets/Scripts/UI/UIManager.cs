@@ -4,6 +4,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Character;
+    [SerializeField] GameObject VictoryScreen;
 
     private void StartMenu()
     {

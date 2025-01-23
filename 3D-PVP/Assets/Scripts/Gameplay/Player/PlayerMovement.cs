@@ -100,6 +100,13 @@ namespace Player
         {
             var lerpPos = transform.position + _input * _movementSpeed * Time.deltaTime;
             _rb.MovePosition(lerpPos);
+
+            _rb.angularVelocity = Vector3.zero;
+        }
+
+        public void Reset()
+        {
+            _input = Vector3.zero;
         }
     }
 }
