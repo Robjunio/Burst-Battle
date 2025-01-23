@@ -5,6 +5,8 @@ namespace Player
 {
     public class PlayerAttack : MonoBehaviour
     {
+        public bool alive;
+
         [SerializeField] Transform attackSpawn;
         private IPowerUp powerUpEquipped;
 
@@ -12,6 +14,7 @@ namespace Player
 
         public void GetAim(InputAction.CallbackContext ctx)
         {
+            if (!alive) return;
             Vector2 dir = ctx.ReadValue<Vector2>();
 
             if (dir == Vector2.zero) return;
@@ -21,7 +24,8 @@ namespace Player
 
         public void TryAttack(InputAction.CallbackContext context)
         {
-            if(context.phase == InputActionPhase.Started)
+            if (!alive) return;
+            if (context.phase == InputActionPhase.Started)
             {
                 if (powerUpEquipped != null)
                 {

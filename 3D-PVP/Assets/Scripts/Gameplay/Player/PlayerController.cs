@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerAttack attackSystem;
+    PlayerMovement movementSystem;
     int bubbleCount;
     
     private void Awake()
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
         var list = FindObjectsOfType<PlayerController>();
 
         TryGetComponent(out attackSystem);
+        TryGetComponent(out movementSystem);
 
         gameObject.name = "Player " + list.Length.ToString();
     }
@@ -19,8 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Death"))
         {
-            print("Died");
-            this.gameObject.SetActive(false);
+            Die();
         }
 
         if (collision.gameObject.CompareTag("Bubble"))
@@ -50,8 +51,7 @@ public class PlayerController : MonoBehaviour
         bubbleCount++;
         if(bubbleCount >= 3)
         {
-            print("Died");
-            this.gameObject.SetActive(false);
+            Die();
         }
         else
         {
@@ -59,9 +59,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        attackSystem.alive = false;
+        movementSystem.alive = false;
+        
+        transform.GetChild(1).gameObject.SetActive(false);
+    }
+
+    private void StartPlayer()
+    {
+        attackSystem.alive = true;
+        movementSystem.alive = true;
+    }
+
     private void OnDisable()
     {
         transform.localScale = Vector3.one;
         bubbleCount = 0;
+
+        EventManager.StartMatch -= StartPlayer;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Instance.PlayerEnterInGame(this);
+        EventManager.StartMatch += StartPlayer;
     }
 }
