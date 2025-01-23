@@ -155,6 +155,28 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4ed10ee4-96a9-47cd-a86f-f0846cc9e51e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43d459ad-b7f6-4e23-9c95-26937e2c9f9a"",
+                    ""path"": ""<SwitchProControllerHID>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""958c5cee-57c0-4e73-ba6b-4def91459d71"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -168,6 +190,17 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""3d15461a-df52-430b-a2fb-56deaaa4f97a"",
                     ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5056c5d-7e1f-4a6f-8ae0-99fc063cca1e"",
+                    ""path"": ""<SwitchProControllerHID>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -199,6 +232,17 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""52120e7c-c3f8-40e1-9e8e-1905fb01b765"",
+                    ""path"": ""<SwitchProControllerHID>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""283cac35-46e0-43b6-a8ca-6f43214d513c"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -212,6 +256,17 @@ public partial class @GameActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""19dd48c1-6577-4380-9431-341a612a58e4"",
                     ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f32d949-daaa-4a16-b312-0f58c903bad6"",
+                    ""path"": ""<SwitchProControllerHID>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

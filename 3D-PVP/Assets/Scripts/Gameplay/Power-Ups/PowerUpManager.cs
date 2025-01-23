@@ -15,7 +15,7 @@ public class PowerUpManager : MonoBehaviour
 
     private Coroutine powerUpCoroutine;
 
-    private Vector3 normalPowerUpPosition = new Vector3(0, 8.5f, 0);
+    private Vector3 normalPowerUpPosition = new Vector3(12, 8.5f, 10);
     void Awake()
     {
         PowerUpPrefab = Resources.Load<GameObject>("Prefabs/PowerUp");

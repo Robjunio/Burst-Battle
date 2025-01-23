@@ -13,7 +13,7 @@ public class PrepareMap : MonoBehaviour
     private void StartMap() 
     {
         foam.SetActive(false);
-        water.SetActive(true);
+        //water.SetActive(true);
         map.SetActive(true);
 
         var players = EventManager.Instance.GetPlayers();
