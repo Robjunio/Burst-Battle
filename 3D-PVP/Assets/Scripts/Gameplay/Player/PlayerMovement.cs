@@ -6,6 +6,8 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
+        public bool alive = false;
+
         private Rigidbody _rb;
 
         [SerializeField] private float _movementSpeed = 5f;
@@ -32,6 +34,7 @@ namespace Player
 
         public void GetMovement(InputAction.CallbackContext ctx)
         {
+            if (!alive) return;
             Vector2 dir = ctx.ReadValue<Vector2>();
 
             _input = new Vector3(dir.x, 0, dir.y);
@@ -39,6 +42,7 @@ namespace Player
 
         public void OnDash(InputAction.CallbackContext context)
         {
+            if (!alive) return;
             if (!_canDash)
             {
                 var diff = Time.time - _timmer;
