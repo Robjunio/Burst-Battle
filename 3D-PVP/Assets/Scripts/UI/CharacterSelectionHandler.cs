@@ -21,6 +21,7 @@ public class CharacterSelectionHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        HandlePlayerInGame();
         EventManager.PlayerEnter += HandlePlayerInGame;
     }
 
