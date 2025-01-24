@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,6 +49,13 @@ public class EventManager : MonoBehaviour
 
     public void OnMatchEnded()
     {
+        StartCoroutine(WaitForEnd());
+    }
+
+    IEnumerator WaitForEnd()
+    {
+        yield return new WaitForSeconds(1f);
+
         EndMatch?.Invoke();
     }
 

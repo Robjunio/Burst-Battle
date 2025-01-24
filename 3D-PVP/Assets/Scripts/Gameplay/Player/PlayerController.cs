@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    GameObject deathEffect;
     PlayerAttack attackSystem;
     PlayerMovement movementSystem;
     int bubbleCount;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     
     private void Awake()
     {
+        deathEffect = Resources.Load<GameObject>("Prefabs/BubbleDeathParticle");
         var list = FindObjectsOfType<PlayerController>();
 
         TryGetComponent(out attackSystem);
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die(string player)
     {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         dead = true;
         attackSystem.alive = false;
         attackSystem.ResetPowerUp();
