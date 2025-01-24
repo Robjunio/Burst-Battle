@@ -5,6 +5,8 @@ public class BubbleGun : MonoBehaviour, IPowerUp
     private GameObject BubblePrefab;
     private int durability = 12;
 
+    private int id = 0;
+
     private void Awake()
     {
         BubblePrefab = Resources.Load<GameObject>("Prefabs/Bubble");
@@ -54,5 +56,10 @@ public class BubbleGun : MonoBehaviour, IPowerUp
         var dir = new Vector3(aim.x + x, 0f, aim.z + z);
 
         return dir.normalized;
+    }
+
+    public int GetPowerUpID()
+    {
+        return id;
     }
 }

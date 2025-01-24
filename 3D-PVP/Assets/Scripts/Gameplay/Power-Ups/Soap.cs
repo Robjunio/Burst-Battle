@@ -4,6 +4,7 @@ public class Soap : MonoBehaviour, IPowerUp
 {
     private GameObject SoapPrefab;
     private int durability = 1;
+    private int id = 1;
 
     private void Awake()
     {
@@ -43,5 +44,10 @@ public class Soap : MonoBehaviour, IPowerUp
         {
             return false;
         }
+    }
+
+    public int GetPowerUpID()
+    {
+        return id;
     }
 }

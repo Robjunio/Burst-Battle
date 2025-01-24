@@ -3,21 +3,58 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Transform playerSkinParent;
+    [SerializeField] private SpriteRenderer playerBase;
+    private GameObject playerSkinObj;
+
+    private Animator _animator;
+    private PlayerSkin _playerSkin;
+
+    GameObject ripple;
     GameObject deathEffect;
+
     PlayerAttack attackSystem;
     PlayerMovement movementSystem;
+
     int bubbleCount;
     bool dead;
     
     private void Awake()
     {
         deathEffect = Resources.Load<GameObject>("Prefabs/BubbleDeathParticle");
+        ripple = Resources.Load<GameObject>("Prefabs/RippleVFX");
+
         var list = FindObjectsOfType<PlayerController>();
 
         TryGetComponent(out attackSystem);
         TryGetComponent(out movementSystem);
 
         gameObject.name = "Player " + list.Length.ToString();
+        playerSkinObj = Resources.Load<GameObject>("Prefabs/" + gameObject.name);
+
+        var obj = Instantiate(playerSkinObj, playerSkinParent);
+
+        _playerSkin = obj.GetComponent<PlayerSkin>();
+        _animator = _playerSkin.GetAnimator();
+
+        attackSystem.SetPlayerSkin(_playerSkin);
+        movementSystem.SetAnimator(_animator);
+
+        switch(list.Length)
+        {
+            case 1:
+                playerBase.color = Color.blue;
+                break;
+            case 2:
+                playerBase.color = Color.magenta;
+                break;
+            case 3:
+                playerBase.color = Color.green;
+                break;
+            case 4:
+                playerBase.color = Color.yellow;
+                break;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -31,7 +68,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bubble"))
         {
             HandlerBubbleAttack(collision.gameObject.name);
-            Destroy(collision.gameObject);
         }
     }
 
@@ -40,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (dead) return;
         if (collision.gameObject.CompareTag("Death"))
         {
-            this.gameObject.SetActive(false);
+            Die(collision.gameObject.name);
         }
 
         if (collision.gameObject.CompareTag("PowerUp"))
@@ -79,6 +115,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if(player == "bath_water") 
+            { 
+                Instantiate(ripple, new Vector3(transform.position.x, 7f, transform.position.z), Quaternion.Euler(90,0,0));
+            }
+
             EventManager.Instance.OnPlayerKilled(player);
         }
         
@@ -91,7 +132,6 @@ public class PlayerController : MonoBehaviour
         attackSystem.alive = true;
         movementSystem.alive = true;
 
-        transform.localScale = Vector3.one;
         bubbleCount = 0;
 
         transform.GetChild(1).gameObject.SetActive(true);
@@ -101,6 +141,7 @@ public class PlayerController : MonoBehaviour
     {
         movementSystem.Reset();
         transform.GetChild(1).gameObject.SetActive(true);
+        transform.localScale = Vector3.one;
     }
 
     private void OnDisable()

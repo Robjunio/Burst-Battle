@@ -9,6 +9,7 @@ namespace Player
         public bool alive = false;
 
         private Rigidbody _rb;
+        private Animator _animator;
 
         [SerializeField] private float _movementSpeed = 5f;
         [SerializeField] private float _dashForce = 16;
@@ -21,16 +22,18 @@ namespace Player
 
         private Vector3 currentScale = Vector3.one;
 
+
         private void Awake()
         {
             TryGetComponent(out _rb);
         }
 
-        public void SetInfo(Rigidbody rb, float movementSpeed)
+
+        public void SetAnimator(Animator animator)
         {
-            _movementSpeed = movementSpeed;
-            _rb = rb;
+            _animator = animator;
         }
+
 
         public void GetMovement(InputAction.CallbackContext ctx)
         {
@@ -38,6 +41,8 @@ namespace Player
             Vector2 dir = ctx.ReadValue<Vector2>();
 
             _input = new Vector3(dir.x, 0, dir.y);
+
+            _animator.SetFloat("Magnitude", _input.magnitude);
         }
 
         public void OnDash(InputAction.CallbackContext context)
@@ -53,6 +58,8 @@ namespace Player
                 }
                 return;
             }
+
+            _animator.SetTrigger("Dash");
 
             currentScale = transform.localScale;
 
