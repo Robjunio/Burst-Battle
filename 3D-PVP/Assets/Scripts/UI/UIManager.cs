@@ -21,6 +21,11 @@ public class UIManager : MonoBehaviour
         VictoryScreen.SetActive(true);
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
     private void OnEnable()
     {
         EventManager.ReachCharacter += StartCharacter;
