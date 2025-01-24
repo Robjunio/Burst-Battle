@@ -94,6 +94,12 @@ public class PlayerController : MonoBehaviour
         transform.GetChild(1).gameObject.SetActive(true);
     }
 
+    public void ResetPlayer()
+    {
+        movementSystem.Reset();
+        transform.GetChild(1).gameObject.SetActive(true);
+    }
+
     private void OnDisable()
     {
         EventManager.StartMatch -= StartPlayer;

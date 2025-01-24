@@ -17,6 +17,7 @@ public class PrepareMap : MonoBehaviour
     {
         //foam.SetActive(false);
         //water.SetActive(true);
+        water.transform.DOMoveY(-0.5f, 0.1f);
         water.tag = "Death";
         map.SetActive(true);
 
@@ -26,11 +27,7 @@ public class PrepareMap : MonoBehaviour
         {
             players[i].transform.position = playerSpawnPosition[i];
             players[i].transform.rotation = Quaternion.identity;
-            var rb = players[i].gameObject.GetComponent<Rigidbody>();
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-
-            players[i].transform.GetChild(1).gameObject.SetActive(true);
+            players[i].ResetPlayer();
         }
     }
 

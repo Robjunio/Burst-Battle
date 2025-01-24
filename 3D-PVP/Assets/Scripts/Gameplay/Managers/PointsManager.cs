@@ -7,7 +7,7 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private GameObject pointsScreem;
     [SerializeField] TMP_Text[] playerUI;
 
-    private int PointsMax = 1;
+    private int PointsMax = 5;
     private int[] players = new int[4];
 
     private void PlayerGotPoint(string player)

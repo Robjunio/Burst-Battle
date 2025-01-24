@@ -16,15 +16,22 @@ public class UIManager : MonoBehaviour
         Character.SetActive(true);
     }
 
+    private void StartVictoryScreen() 
+    { 
+        VictoryScreen.SetActive(true);
+    }
+
     private void OnEnable()
     {
         EventManager.ReachCharacter += StartCharacter;
         EventManager.ReachMenu += StartMenu;
+        EventManager.ReachVictory += StartVictoryScreen;
     }
 
     private void OnDisable()
     {
         EventManager.ReachMenu -= StartMenu;
         EventManager.ReachCharacter -= StartCharacter;
+        EventManager.ReachVictory -= StartVictoryScreen;
     }
 }

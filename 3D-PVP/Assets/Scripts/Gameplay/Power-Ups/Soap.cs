@@ -13,7 +13,7 @@ public class Soap : MonoBehaviour, IPowerUp
     public void UsePowerUp(Transform spawn, Vector3 dir, string player)
     {
         dir = dir.normalized;
-        var powerUp = Instantiate(SoapPrefab, spawn.position + dir, Quaternion.Euler(90, 0, 0));
+        var powerUp = Instantiate(SoapPrefab, spawn.position + dir, Quaternion.identity);
 
         Rigidbody body = powerUp.GetComponent<Rigidbody>();
         powerUp.name = player;

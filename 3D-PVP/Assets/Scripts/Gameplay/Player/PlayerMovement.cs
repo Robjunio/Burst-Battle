@@ -11,7 +11,7 @@ namespace Player
         private Rigidbody _rb;
 
         [SerializeField] private float _movementSpeed = 5f;
-        [SerializeField] private float _dashForce = 8;
+        [SerializeField] private float _dashForce = 16;
         private float _turnSpeed = 720;
         private Vector3 _input;
 
@@ -64,17 +64,11 @@ namespace Player
                 transform.rotation = rot;
             }
 
-            _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
+            _rb.AddForce(transform.forward * _dashForce  * transform.localScale.x, ForceMode.Impulse);
 
             _timmer = Time.time;
             _canDash = false;
-            _rb.mass = 10 * transform.localScale.x * 1.5f;
-
-            transform.DOScale(transform.localScale * 1.5f, 0.4f).onComplete = () =>
-            {
-                transform.DOScale(currentScale, 0.05f);
-                _rb.mass = 1;
-            };
+            _rb.mass = 1 * transform.localScale.x;
         }
 
         private void Update()
@@ -107,6 +101,8 @@ namespace Player
         public void Reset()
         {
             _input = Vector3.zero;
+            _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
         }
     }
 }
