@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 779e58534f352e84d812b40f957fd86c
+guid: f1e3ddf6c4533b845b67cb88882743a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RippleVfxSpritesheet_500x500_0
+      name: BubbleProjectileVFXSpritesheet_500x500_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dba86a5ab5c13d45b431ffcd39a2be1
+      internalID: -570948976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleProjectileVFXSpritesheet_500x500_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02709e7f24c0412498c580d763712d65
+      internalID: 1566541281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleProjectileVFXSpritesheet_500x500_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4adb30375233f8e4ea1277484116150b
+      internalID: -1739817757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleProjectileVFXSpritesheet_500x500_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412c4ed3205d5e34a808fd999a17d392
+      internalID: 257540445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleProjectileVFXSpritesheet_500x500_4
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95e4ac9f044e01c4797d51b3e041799e
-      internalID: 1800365200
+      spriteID: 47f9fe56c9593da4e9f8ea6d1631793f
+      internalID: -1342626129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RippleVfxSpritesheet_500x500_1
+      name: BubbleProjectileVFXSpritesheet_500x500_5
       rect:
         serializedVersion: 2
         x: 500
@@ -145,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f987b0e91421c489dcd8f3b8958ab0
-      internalID: 179521223
+      spriteID: 676c1a9d6f9212e4fa5d847f162fba83
+      internalID: -127695110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RippleVfxSpritesheet_500x500_2
+      name: BubbleProjectileVFXSpritesheet_500x500_6
       rect:
         serializedVersion: 2
         x: 1000
@@ -166,14 +250,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c4dc5f0957dee446a62ca55148afc0c
-      internalID: 1246363724
+      spriteID: 64a61cb3d9319cc45b08b377ddf84def
+      internalID: -1597831929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RippleVfxSpritesheet_500x500_3
+      name: BubbleProjectileVFXSpritesheet_500x500_7
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4c815bff2db4e4ab1b63c487fb8b3f
+      internalID: -103130510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleProjectileVFXSpritesheet_500x500_8
       rect:
         serializedVersion: 2
         x: 0
@@ -187,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bcbfd3d064849743b0e700213687921
-      internalID: 466844204
+      spriteID: c58c0576c7e0c604abb7340576f2a0ba
+      internalID: 588120389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RippleVfxSpritesheet_500x500_4
+      name: BubbleProjectileVFXSpritesheet_500x500_9
       rect:
         serializedVersion: 2
         x: 500
@@ -208,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab284b71bc9fa5d47b46f608d6382dcd
-      internalID: 767717191
+      spriteID: 3f52f529d7154dc4e8c9987e8f417390
+      internalID: -679964732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RippleVfxSpritesheet_500x500_5
+      name: BubbleProjectileVFXSpritesheet_500x500_10
       rect:
         serializedVersion: 2
         x: 1000
@@ -229,8 +334,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80364ad15b60e1b4888f0ca294cf416e
-      internalID: 1325212340
+      spriteID: 0759f01662c5bb64ab84386bd53d9e7b
+      internalID: 748522121
       vertices: []
       indices: 
       edges: []
@@ -238,7 +343,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 33460e5bc7c395344ad621a88553f08d
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -246,12 +351,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RippleVfxSpritesheet_500x500_0: 1800365200
-      RippleVfxSpritesheet_500x500_1: 179521223
-      RippleVfxSpritesheet_500x500_2: 1246363724
-      RippleVfxSpritesheet_500x500_3: 466844204
-      RippleVfxSpritesheet_500x500_4: 767717191
-      RippleVfxSpritesheet_500x500_5: 1325212340
+      BubbleProjectileVFXSpritesheet_500x500_0: -570948976
+      BubbleProjectileVFXSpritesheet_500x500_1: 1566541281
+      BubbleProjectileVFXSpritesheet_500x500_10: 748522121
+      BubbleProjectileVFXSpritesheet_500x500_2: -1739817757
+      BubbleProjectileVFXSpritesheet_500x500_3: 257540445
+      BubbleProjectileVFXSpritesheet_500x500_4: -1342626129
+      BubbleProjectileVFXSpritesheet_500x500_5: -127695110
+      BubbleProjectileVFXSpritesheet_500x500_6: -1597831929
+      BubbleProjectileVFXSpritesheet_500x500_7: -103130510
+      BubbleProjectileVFXSpritesheet_500x500_8: 588120389
+      BubbleProjectileVFXSpritesheet_500x500_9: -679964732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
