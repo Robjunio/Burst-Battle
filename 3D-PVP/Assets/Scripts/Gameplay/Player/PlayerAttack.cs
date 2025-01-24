@@ -29,7 +29,7 @@ namespace Player
             {
                 if (powerUpEquipped != null)
                 {
-                    powerUpEquipped.UsePowerUp(attackSpawn, _aim);
+                    powerUpEquipped.UsePowerUp(attackSpawn, _aim, gameObject.name);
                     if (!powerUpEquipped.CheckDurability())
                     {
                         powerUpEquipped.DestroyPowerUp();
@@ -47,5 +47,12 @@ namespace Player
                 powerUpEquipped = power;
             }
         }
+
+        public void ResetPowerUp()
+        {
+            powerUpEquipped = null;
+            
+            _aim = Vector3.forward;
+    }
     }
 }

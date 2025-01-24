@@ -11,11 +11,15 @@ public class PowerUpManager : MonoBehaviour
     private List<IPowerUp> powerUps = new List<IPowerUp>();
     [SerializeField] private Vector3[] startingPoints;
 
+    private List<GameObject> powerUpsObj = new List<GameObject>();
+
     private int currentPowerUpsOnMap;
 
     private Coroutine powerUpCoroutine;
 
     private Vector3 normalPowerUpPosition = new Vector3(12, 8.5f, 10);
+
+    bool canCreate;
     void Awake()
     {
         PowerUpPrefab = Resources.Load<GameObject>("Prefabs/PowerUp");
@@ -31,6 +35,7 @@ public class PowerUpManager : MonoBehaviour
 
     private void StartPowerUps()
     {
+        canCreate = true;
         foreach(Vector3 pos in startingPoints)
         {
             InstancePowerUp(pos);
@@ -40,6 +45,9 @@ public class PowerUpManager : MonoBehaviour
     private void RemovePowerUp()
     {
         currentPowerUpsOnMap--;
+
+        if (!canCreate) return;
+        
         if(currentPowerUpsOnMap <= 0)
         {
             powerUpCoroutine = StartCoroutine(RestartPowerUp());
@@ -58,6 +66,8 @@ public class PowerUpManager : MonoBehaviour
 
         var obj = Instantiate(PowerUpPrefab, position, Quaternion.identity);
 
+        powerUpsObj.Add(obj);
+
         var powerUp = obj.GetComponent<PowerUp>();
 
         powerUps[randomPowerUpID].ResetDurability();
@@ -66,17 +76,40 @@ public class PowerUpManager : MonoBehaviour
         currentPowerUpsOnMap++;
     }
 
+    private void Reset()
+    {
+        canCreate = false;
+
+        if (powerUpCoroutine != null)
+        {
+            StopCoroutine(powerUpCoroutine);
+        }
+
+        for (int i = 0; i < powerUpsObj.Count; i++)
+        {
+            if (powerUpsObj[i] != null)
+            {
+                Destroy(powerUpsObj[i]);
+            }
+        }
+
+        powerUpsObj.Clear();
+    }
+
     // Update is called once per frame
     private void OnEnable()
     {
         PowerUpCollected += RemovePowerUp;
         EventManager.PlayersReady += StartPowerUps;
+        EventManager.EndMatch += Reset;
     }
 
     private void OnDisable()
     {
         PowerUpCollected -= RemovePowerUp;
         EventManager.PlayersReady -= StartPowerUps;
+        EventManager.EndMatch -= Reset;
+
         if (powerUpCoroutine != null)
         {
             StopCoroutine(powerUpCoroutine);

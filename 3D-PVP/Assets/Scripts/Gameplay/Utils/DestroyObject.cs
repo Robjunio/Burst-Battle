@@ -13,4 +13,14 @@ public class DestroyObject : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnEnable()
+    {
+        EventManager.EndMatch += DestroyObj;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.EndMatch -= DestroyObj;
+    }
 }

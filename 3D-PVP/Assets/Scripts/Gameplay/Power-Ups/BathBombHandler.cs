@@ -10,11 +10,12 @@ public class BathBombHandler : MonoBehaviour, IPowerUp
         BathBombPrefab = Resources.Load<GameObject>("Prefabs/DeathBomb");
     }
 
-    public void UsePowerUp(Transform spawn, Vector3 dir)
+    public void UsePowerUp(Transform spawn, Vector3 dir, string player)
     {
         var powerUp = Instantiate(BathBombPrefab, spawn.position + dir, Quaternion.identity);
 
         Rigidbody body = powerUp.GetComponent<Rigidbody>();
+        powerUp.name = player;
 
         body.AddForce(15 * dir, ForceMode.Impulse);
 

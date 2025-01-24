@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum Points {
     Menu,
@@ -28,8 +29,6 @@ public class CameraMovement : MonoBehaviour
         });
 
         Camera.main.fieldOfView = cameraPoints[1].FOV;
-
-
     }
 
     public void MoveToMenu()
@@ -50,5 +49,15 @@ public class CameraMovement : MonoBehaviour
         });
 
         Camera.main.fieldOfView = cameraPoints[2].FOV;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.PlayersReady += MoveToGameplay;
+    }
+
+    private void OnDisable()
+    {
+       EventManager.PlayersReady -= MoveToGameplay;
     }
 }
