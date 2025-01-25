@@ -1,13 +1,21 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PointsManager : MonoBehaviour
 {
     [SerializeField] private GameObject pointsScreem;
-    [SerializeField] TMP_Text[] playerUI;
+    [SerializeField] private Image[] player1Points;
+    [SerializeField] private Image[] player2Points;
+    [SerializeField] private Image[] player3Points;
+    [SerializeField] private Image[] player4Points;
 
-    private int PointsMax = 5;
+    [SerializeField] private Sprite[] killSprite;
+
+    [SerializeField] private Sprite baseSprite;
+
+    private int PointsMax = 10;
     private int[] players = new int[4];
 
     private void PlayerGotPoint(string player)
@@ -119,11 +127,49 @@ public class PointsManager : MonoBehaviour
 
     private void UpdatePoints()
     {
+        var p1 = EventManager.Instance.GetPlayer1Kills();
+        var p2 = EventManager.Instance.GetPlayer2Kills();
+        var p3 = EventManager.Instance.GetPlayer3Kills();
+        var p4 = EventManager.Instance.GetPlayer4Kills();
+
         pointsScreem.SetActive(true);
 
-        for (int i = 0; i < players.Length; i++)
+        for(int i = 0;i < PointsMax;i++)
         {
-            playerUI[i].text = "Player " + (i + 1) + ": " + players[i].ToString();
+            if (i <= p1.Count - 1) {
+                player1Points[i].sprite = killSprite[p1[i]];
+            }
+            else
+            {
+                player1Points[i].sprite = baseSprite;
+            }
+
+            if (i <= p2.Count - 1)
+            {
+                player2Points[i].sprite = killSprite[p2[i]];
+            }
+            else
+            {
+                player2Points[i].sprite = baseSprite;
+            }
+
+            if (i <= p3.Count - 1)
+            {
+                player3Points[i].sprite = killSprite[p3[i]];
+            }
+            else
+            {
+                player3Points[i].sprite = baseSprite;
+            }
+
+            if (i <= p4.Count - 1)
+            {
+                player4Points[i].sprite = killSprite[p4[i]];
+            }
+            else
+            {
+                player4Points[i].sprite = baseSprite;
+            }
         }
 
         StartCoroutine(WaitToContinue());

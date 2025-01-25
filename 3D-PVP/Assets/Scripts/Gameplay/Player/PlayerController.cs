@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Player;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -123,6 +124,8 @@ public class PlayerController : MonoBehaviour
         if(gameObject.name == player) 
         {
             EventManager.Instance.OnPlayerDead(player);
+            EventManager.Instance.PlayerKillHimSelf(player);
+
         }
         else
         {
@@ -131,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(ripple, new Vector3(transform.position.x, 7f, transform.position.z), Quaternion.Euler(90,0,0));
             }
 
+            EventManager.Instance.PlayerWasKilled(gameObject.name, player);
             EventManager.Instance.OnPlayerKilled(player);
         }
         

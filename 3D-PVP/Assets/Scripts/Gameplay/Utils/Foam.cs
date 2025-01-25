@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Foam : MonoBehaviour
 {
+    private Vector3 startingScale;
     private void StartBattle()
     {
         transform.DOScale(new Vector3(0.5f, 0.9f, 0.5f), 90f).SetEase(Ease.InQuart);
