@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 4148794091980037121}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.1, y: -0.65, z: 0}
+  m_LocalPosition: {x: 0, y: -0.65, z: 0.15}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSkinParent: {fileID: 7233421942425211404}
   playerBase: {fileID: 6999021797765695631}
+  dead: 0
 --- !u!114 &5471066525959799239
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,6 +30,25 @@ public class PointsManager : MonoBehaviour
         }
     }
 
+    private void PlayerSurvived(string player)
+    {
+        switch (player)
+        {
+            case "Player 1":
+                players[0] = players[0] + 1;
+                break;
+            case "Player 2":
+                players[1] = players[1] + 1;
+                break;
+            case "Player 3":
+                players[2] = players[2] + 1;
+                break;
+            case "Player 4":
+                players[3] = players[3] + 1;
+                break;
+        }
+    }
+
     private void PlayerLostPoint(string player)
     {
         switch (player)
@@ -128,6 +147,7 @@ public class PointsManager : MonoBehaviour
         EventManager.PlayerDead += PlayerLostPoint;
         EventManager.EndMatch += UpdatePoints;
         EventManager.PlayerWin += ResetGamePoints;
+        EventManager.PlayerSurvived += PlayerSurvived;
     }
 
     private void OnDisable()
@@ -136,6 +156,7 @@ public class PointsManager : MonoBehaviour
         EventManager.PlayerDead -= PlayerLostPoint;
         EventManager.EndMatch -= UpdatePoints;
         EventManager.PlayerWin -= ResetGamePoints;
+        EventManager.PlayerSurvived -= PlayerSurvived;
     }
 
 }

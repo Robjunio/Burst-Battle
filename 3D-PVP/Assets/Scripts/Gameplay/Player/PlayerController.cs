@@ -1,4 +1,6 @@
+using DG.Tweening;
 using Player;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -17,7 +19,7 @@ public class PlayerController : MonoBehaviour
     PlayerMovement movementSystem;
 
     int bubbleCount;
-    bool dead;
+    public bool dead;
     
     private void Awake()
     {
@@ -100,8 +102,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator FreezeTime()
+    {
+        yield return null;
+        Time.timeScale = 0.2f;
+        yield return new WaitForSecondsRealtime(0.3f);
+        Time.timeScale = 1f;
+    }
+
     private void Die(string player)
     {
+        StartCoroutine(FreezeTime());
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         dead = true;
         attackSystem.alive = false;
@@ -124,6 +135,7 @@ public class PlayerController : MonoBehaviour
         }
         
         transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
     }
 
     private void StartPlayer()
@@ -135,12 +147,17 @@ public class PlayerController : MonoBehaviour
         bubbleCount = 0;
 
         transform.GetChild(1).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
     }
 
     public void ResetPlayer()
     {
+        attackSystem.alive = false;
+        movementSystem.alive = false;
+
         movementSystem.Reset();
         transform.GetChild(1).gameObject.SetActive(true);
+        transform.GetChild(2).gameObject.SetActive(true);
         transform.localScale = Vector3.one;
     }
 

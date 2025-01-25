@@ -17,6 +17,7 @@ public class EventManager : MonoBehaviour
     public delegate void Battle(string player);
     public static event Battle PlayerKilled;
     public static event Battle PlayerDead;
+    public static event Battle PlayerSurvived;
     public static event Battle PlayerWin;
 
 
@@ -67,6 +68,14 @@ public class EventManager : MonoBehaviour
         playersCount--;
         if(playersCount <= 1)
         {
+            matchEnded = true;
+            foreach (var cont in players)
+            {
+                if (!cont.dead)
+                {
+                    OnPlayerSurvived(cont.gameObject.name);
+                }
+            }
             OnMatchEnded();
         }
     }
@@ -79,8 +88,21 @@ public class EventManager : MonoBehaviour
         playersCount--;
         if (playersCount <= 1)
         {
+            matchEnded = true;
+            foreach (var cont in players)
+            {
+                if (!cont.dead)
+                {
+                    OnPlayerSurvived(cont.gameObject.name);
+                }
+            }
             OnMatchEnded();
         }
+    }
+
+    public void OnPlayerSurvived(string player)
+    {
+        PlayerSurvived?.Invoke(player);
     }
 
     public void OnReachMenu()
@@ -96,10 +118,14 @@ public class EventManager : MonoBehaviour
     public void OnReachGameplay()
     {
         ReachGameplay?.Invoke();
+    }
 
+    public void OnMatchStarted()
+    {
         StartMatch?.Invoke();
         matchEnded = false;
     }
+
     public void OnReachVictory()
     {
         ReachVictory?.Invoke();
