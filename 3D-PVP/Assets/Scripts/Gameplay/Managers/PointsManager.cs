@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PointsManager : MonoBehaviour
 {
     [SerializeField] private GameObject pointsScreem;
+    [SerializeField] private GameObject transition;
+
     [SerializeField] private Image[] player1Points;
     [SerializeField] private Image[] player2Points;
     [SerializeField] private Image[] player3Points;
@@ -106,23 +108,44 @@ public class PointsManager : MonoBehaviour
             if (!draw)
             {
                 print("We have a winner");
-                EventManager.Instance.OnPlayerWin("Player " + bestPlayerId);
-                pointsScreem.SetActive(false);
+                StartCoroutine(SetWinner("Player " + bestPlayerId));
             }
             else
             {
                 print("We have a draw");
-                EventManager.Instance.OnPlayersReady();
-                pointsScreem.SetActive(false);
+                StartCoroutine(ContinueMatch());
             }
         }
        
         else
         {
             print("Nobody win the game continues");
-            EventManager.Instance.OnPlayersReady();
-            pointsScreem.SetActive(false);
+            StartCoroutine(ContinueMatch());
         }
+    }
+
+    IEnumerator ContinueMatch()
+    {
+        transition.SetActive(true);
+        yield return new WaitForSeconds(0.67f);
+        pointsScreem.SetActive(false);
+        EventManager.Instance.OnPlayersReady();
+
+        yield return new WaitForSeconds(1f);
+
+        transition.SetActive(false);
+    }
+
+    IEnumerator SetWinner(string winner)
+    {
+        transition.SetActive(true);
+        yield return new WaitForSeconds(0.67f);
+        pointsScreem.SetActive(false);
+        EventManager.Instance.OnPlayerWin(winner);
+
+        yield return new WaitForSeconds(1f);
+
+        transition.SetActive(false);
     }
 
     private void UpdatePoints()
