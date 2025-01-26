@@ -12,6 +12,7 @@ public class PrepareMap : MonoBehaviour
     [SerializeField] GameObject map;
 
     [SerializeField] Vector3[] playerSpawnPosition;
+    [SerializeField] Vector3[] playerSpawnRotation;
 
     private void StartMap() 
     {
@@ -26,7 +27,7 @@ public class PrepareMap : MonoBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             players[i].transform.position = playerSpawnPosition[i];
-            players[i].transform.rotation = Quaternion.identity;
+            players[i].transform.rotation = Quaternion.Euler(playerSpawnRotation[i]);
             players[i].ResetPlayer();
         }
     }

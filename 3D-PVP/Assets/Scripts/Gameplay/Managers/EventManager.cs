@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
+    [SerializeField] AudioSource AudioSource;
+    [SerializeField] AudioClip[] musicClips;
     public static EventManager Instance; 
 
     List<PlayerController> players = new List<PlayerController>();

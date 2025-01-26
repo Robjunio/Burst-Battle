@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1146370052613715800}
   - component: {fileID: 758113153277903447}
   - component: {fileID: 4235422618613242649}
+  - component: {fileID: 4598065466053744300}
   m_Layer: 4
   m_Name: Soap
   m_TagString: Death
@@ -96,6 +97,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 10
+--- !u!114 &4598065466053744300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086351009779986472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5573f436b636044d884ed6259e430ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6334872230770466133
 PrefabInstance:
   m_ObjectHideFlags: 0
