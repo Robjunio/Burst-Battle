@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7056979809040295016}
   - component: {fileID: 1289327837801620894}
   - component: {fileID: 4695066187423536571}
+  - component: {fileID: 4811998252214562999}
   m_Layer: 4
   m_Name: Bubble
   m_TagString: Bubble
@@ -106,7 +107,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1289327837801620894
 MonoBehaviour:
@@ -148,6 +149,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &4811998252214562999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551606196709025928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b090beafda90748818809d5cc65312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4258594572799747013
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +172,7 @@ GameObject:
   - component: {fileID: 8979265084127469170}
   - component: {fileID: 8677835205747130204}
   - component: {fileID: 2069798466928061012}
+  - component: {fileID: 5096251329755094493}
   m_Layer: 4
   m_Name: BubbleProjectile
   m_TagString: Untagged
@@ -176,7 +190,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5246343073677039424}
@@ -249,3 +263,24 @@ MonoBehaviour:
   lockX: 0
   lockY: 0
   lockZ: 0
+--- !u!95 &5096251329755094493
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258594572799747013}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbb5dd5ca005a5e40973041fd50c4856, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

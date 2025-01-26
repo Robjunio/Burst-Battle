@@ -5,6 +5,8 @@ public class BathBombHandler : MonoBehaviour, IPowerUp
     private GameObject BathBombPrefab;
     private int durability = 1;
 
+    private int id = 2;
+
     private void Awake()
     {
         BathBombPrefab = Resources.Load<GameObject>("Prefabs/DeathBomb");
@@ -13,7 +15,7 @@ public class BathBombHandler : MonoBehaviour, IPowerUp
     public void UsePowerUp(Transform spawn, Vector3 dir, string player)
     {
         var powerUp = Instantiate(BathBombPrefab, spawn.position + dir, Quaternion.identity);
-
+        
         Rigidbody body = powerUp.GetComponent<Rigidbody>();
         powerUp.name = player;
 
@@ -42,5 +44,10 @@ public class BathBombHandler : MonoBehaviour, IPowerUp
     public void ResetDurability()
     {
         durability = 1;
+    }
+
+    public int GetPowerUpID()
+    {
+        return id;
     }
 }

@@ -31,6 +31,11 @@ public class PrepareMap : MonoBehaviour
         }
     }
 
+    public void ResetWater()
+    {
+        water.transform.DOMoveY(-0.5f, 0.1f);
+    }
+
     private void OnVictory(string player)
     {
         map.SetActive(false);

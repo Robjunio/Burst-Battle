@@ -12,6 +12,8 @@ namespace Player
 
         private Vector3 _aim = Vector3.forward;
 
+        private PlayerSkin playerSkin;
+
         public void GetAim(InputAction.CallbackContext ctx)
         {
             if (!alive) return;
@@ -33,6 +35,7 @@ namespace Player
                     if (!powerUpEquipped.CheckDurability())
                     {
                         powerUpEquipped.DestroyPowerUp();
+                        playerSkin.ResetPowerUps();
 
                         powerUpEquipped = null;
                     }
@@ -45,14 +48,21 @@ namespace Player
             if (powerUpEquipped == null)
             {
                 powerUpEquipped = power;
+                playerSkin.SetActivePowerUp(power.GetPowerUpID());
             }
         }
 
         public void ResetPowerUp()
         {
             powerUpEquipped = null;
-            
+            playerSkin.ResetPowerUps();
+
             _aim = Vector3.forward;
-    }
+        }
+
+        public void SetPlayerSkin(PlayerSkin player)
+        {
+            playerSkin = player;
+        }
     }
 }
