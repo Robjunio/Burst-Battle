@@ -8745,7 +8745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64900005, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5499878, y: 0}
+  m_AnchoredPosition: {x: -1.5499268, y: 0}
   m_SizeDelta: {x: 3.0999985, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235318614
@@ -8779,32 +8779,32 @@ MonoBehaviour:
 
     Music: Bubble Bath by The Green Orbs
 
-    
+
 
     Bubble
     Pop by elmasmalo1 -- https://freesound.org/s/376968/ -- License: Attribution
     3.0
 
-    
+
 
     Cartoon / Video Game - Bubble Shot by Breviceps -- https://freesound.org/s/445961/
     -- License: Creative Commons 0
 
-    
+
 
     Bubble_Pop by arttim -- https://freesound.org/s/733264/
     -- License: Creative Commons 0
 
-    
 
-    G Guitar Chord Hit Percussion.wav
-    by afleetingspeck -- https://freesound.org/s/246283/ -- License: Creative Commons
+
+    G Guitar Chord Hit Percussion.wav by afleetingspeck
+    -- https://freesound.org/s/246283/ -- License: Creative Commons 0
+
+
+
+    Bubble
+    Pop by TheBuilder15 -- https://freesound.org/s/411462/ -- License: Creative Commons
     0
-
-    
-
-    Bubble Pop by TheBuilder15 -- https://freesound.org/s/411462/
-    -- License: Creative Commons 0
 
 '
   m_isRightToLeft: 0
@@ -9679,32 +9679,32 @@ MonoBehaviour:
 
     Music: Bubble Bath by The Green Orbs
 
-    
+
 
     Bubble
     Pop by elmasmalo1 -- https://freesound.org/s/376968/ -- License: Attribution
     3.0
 
-    
+
 
     Cartoon / Video Game - Bubble Shot by Breviceps -- https://freesound.org/s/445961/
     -- License: Creative Commons 0
 
-    
+
 
     Bubble_Pop by arttim -- https://freesound.org/s/733264/
     -- License: Creative Commons 0
 
-    
 
-    G Guitar Chord Hit Percussion.wav
-    by afleetingspeck -- https://freesound.org/s/246283/ -- License: Creative Commons
+
+    G Guitar Chord Hit Percussion.wav by afleetingspeck
+    -- https://freesound.org/s/246283/ -- License: Creative Commons 0
+
+
+
+    Bubble
+    Pop by TheBuilder15 -- https://freesound.org/s/411462/ -- License: Creative Commons
     0
-
-    
-
-    Bubble Pop by TheBuilder15 -- https://freesound.org/s/411462/
-    -- License: Creative Commons 0
 
 '
   m_isRightToLeft: 0
@@ -12154,7 +12154,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
