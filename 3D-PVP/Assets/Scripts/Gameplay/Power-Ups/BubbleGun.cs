@@ -15,6 +15,8 @@ public class BubbleGun : MonoBehaviour, IPowerUp
     public void UsePowerUp(Transform spawn, Vector3 dir, string player)
     {
         dir = BubbleAimDiff(dir);
+
+        AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/376968__elmasmalo1__bubble-pop"), Camera.main.transform.position);
         var powerUp = Instantiate(BubblePrefab, spawn.position + dir, Quaternion.identity);
 
         powerUp.name = player;

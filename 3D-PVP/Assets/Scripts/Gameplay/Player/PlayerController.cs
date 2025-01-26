@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandlerBubbleAttack(string player)
     {
+        AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/maximize_006"), Camera.main.transform.position);
         bubbleCount++;
         if(bubbleCount >= 3)
         {
@@ -113,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die(string player)
     {
+        AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/733264__arttim__bubble_pop"), Camera.main.transform.position);
         StartCoroutine(FreezeTime());
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         dead = true;

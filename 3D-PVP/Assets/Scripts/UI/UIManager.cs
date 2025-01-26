@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Character;
     [SerializeField] GameObject VictoryScreen;
+    [SerializeField] AudioSource AudioSource;
 
     private void StartMenu()
     {
@@ -24,6 +25,11 @@ public class UIManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void OnSelect()
+    {
+        AudioSource.Play();
     }
 
     private void OnEnable()

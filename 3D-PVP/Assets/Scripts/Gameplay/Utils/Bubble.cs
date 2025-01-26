@@ -17,6 +17,8 @@ public class Bubble : MonoBehaviour
         {
             _collider.enabled = false;
             _animator.SetTrigger("Pop");
+
+            AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/411462__thebuilder15__bubble-pop"), Camera.main.transform.position);
         }
     }
 }

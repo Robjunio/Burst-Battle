@@ -24,6 +24,8 @@ public class BathBomb : MonoBehaviour
     {
         exploded = true;
         Camera.main.transform.DOShakePosition(0.5f);
+
+        AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/445961__breviceps__cartoon-video-game-bubble-shot"), Camera.main.transform.position);
         transform.GetChild(0).gameObject.SetActive(true);
 
         yield return null;
