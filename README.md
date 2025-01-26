@@ -1,10 +1,33 @@
 <h1><strong>Burst Battle</strong></h1>
-<h2>Descrição:</h2>
-<p>Mergulhe no caos ensaboado de <strong>Burst Battle</strong>, um brawler multiplayer acelerado ambientado em uma vibrante arena de banheiro em estilo low-poly! Cada jogador controla uma bolha brincalhona que luta pela supremacia em uma banheira gigante. Armado com power-ups divertidos como sabonetes escorregadios, bombas de banho explosivas e armas de bolhas, você precisará superar e derrotar seus oponentes.</p>
-<p>As regras são simples: estoure seus rivais para marcar pontos. O primeiro jogador a alcançar 10 eliminações se torna o campeão definitivo da banheira.</p>
-<p>Esse jogo é um&nbsp; resultado da <strong>Global Game Jam&nbsp; 2025&nbsp;</strong>desenvolvido em um período de 7 dias no tema de&nbsp;<strong>Bolhas</strong>.</p>
-<h2>Recomendações:</h2>
-<p>Recomendamos jogar com controles. Testamos o jogo usando controles de Xbox e PlayStation, então outros gamepads podem não funcionar como esperado.</p>
-<h2>Equipe Yummy!</h2>
+<h2>Description:</h2>
+<p>Immerse yourself in the bubbly chaos of <strong>Burst Battle</strong>, a fast-paced multiplayer brawler set in a vibrant, low-poly bathroom arena! Each player controls a playful bubble battling for supremacy in a giant bathtub. Armed with fun power-ups like slippery soaps, explosive bath bombs, and bubble guns, you'll need to outwit and defeat your opponents.</p>
+<p>The rules are simple: pop your rivals to score points. The first player to reach 10 eliminations becomes the ultimate champion of the tub.</p>
+<p>This game is the result of the <strong>Global Game Jam 2025</strong>, developed over 7 days under the theme of <strong>Bubbles</strong>.</p>
+<h2>Recommendations:</h2>
+<p>We recommend playing with controllers. The game was tested using Xbox and PlayStation controllers, so other gamepads may not function as expected.</p>
+<h2>Team Yummy!</h2>
 <p></p>
-<table><tbody><tr><td><strong>Nome</strong></td><td><strong>Função</strong></td></tr><tr><td>Ana Livia</td><td>Designer UI/UX</td></tr><tr><td>Gabriel Motta</td><td>Tech Artist</td></tr><tr><td>Guilherme Luz</td><td>Modelador 3D</td></tr><tr><td>Roberto Junio</td><td>Game Designer e Desenvolvedor Unity</td></tr></tbody></table>
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><strong>Role</strong></td>
+    </tr>
+    <tr>
+      <td>Ana Livia</td>
+      <td>UI/UX Designer</td>
+    </tr>
+    <tr>
+      <td>Gabriel Motta</td>
+      <td>Tech Artist</td>
+    </tr>
+    <tr>
+      <td>Guilherme Luz</td>
+      <td>3D Modeler</td>
+    </tr>
+    <tr>
+      <td>Roberto Junio</td>
+      <td>Game Designer and Unity Developer</td>
+    </tr>
+  </tbody>
+</table>
