@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
 public class CharacterSelectionHandler : MonoBehaviour
 {
     [SerializeField] private Image[] playerImages;

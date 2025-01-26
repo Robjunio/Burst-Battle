@@ -159,7 +159,8 @@ public class PointsManager : MonoBehaviour
 
         for(int i = 0;i < PointsMax;i++)
         {
-            if (i <= p1.Count - 1) {
+            if (i <= p1.Count - 1 && i <= players[0])
+            {
                 player1Points[i].sprite = killSprite[p1[i]];
             }
             else
@@ -167,7 +168,7 @@ public class PointsManager : MonoBehaviour
                 player1Points[i].sprite = baseSprite;
             }
 
-            if (i <= p2.Count - 1)
+            if (i <= p2.Count - 1 && i <= players[1])
             {
                 player2Points[i].sprite = killSprite[p2[i]];
             }
@@ -176,7 +177,7 @@ public class PointsManager : MonoBehaviour
                 player2Points[i].sprite = baseSprite;
             }
 
-            if (i <= p3.Count - 1)
+            if (i <= p3.Count - 1 && i <= players[2])
             {
                 player3Points[i].sprite = killSprite[p3[i]];
             }
@@ -185,7 +186,7 @@ public class PointsManager : MonoBehaviour
                 player3Points[i].sprite = baseSprite;
             }
 
-            if (i <= p4.Count - 1)
+            if (i <= p4.Count - 1 && i <= players[3])
             {
                 player4Points[i].sprite = killSprite[p4[i]];
             }
