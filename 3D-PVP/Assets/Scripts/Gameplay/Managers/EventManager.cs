@@ -75,13 +75,13 @@ public class EventManager : MonoBehaviour
         if(playersCount <= 1)
         {
             matchEnded = true;
-            /*foreach (var cont in players)
+            foreach (var cont in players)
             {
                 if (!cont.dead)
                 {
-                    OnPlayerSurvived(cont.gameObject.name);
+                    PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
                 }
-            }*/
+            }
             OnMatchEnded();
         }
     }
@@ -99,7 +99,7 @@ public class EventManager : MonoBehaviour
             {
                 if (!cont.dead)
                 {
-                    OnPlayerSurvived(cont.gameObject.name);
+                    PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
                 }
             }
             OnMatchEnded();
@@ -188,7 +188,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void PlayerKillHimSelf(string player)
+    /*public void PlayerKillHimSelf(string player)
     {
         switch (player)
         {
@@ -216,7 +216,7 @@ public class EventManager : MonoBehaviour
                 }
                 break;
         }
-    }
+    }*/
 
     public List<int> GetPlayer1Kills()
     {
