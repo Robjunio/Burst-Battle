@@ -20,7 +20,7 @@ public class PointsManager : MonoBehaviour
     private int PointsMax = 10;
     private int[] players = new int[4];
 
-    private void PlayerGotPoint(string player)
+    /*private void PlayerGotPoint(string player)
     {
         print("Somebody Die " + player);
         switch (player)
@@ -38,9 +38,9 @@ public class PointsManager : MonoBehaviour
                 players[3] = players[3] + 1;
                 break;
         }
-    }
+    }*/
 
-    private void PlayerSurvived(string player)
+    /*private void PlayerSurvived(string player)
     {
         switch (player)
         {
@@ -57,9 +57,9 @@ public class PointsManager : MonoBehaviour
                 players[3] = players[3] + 1;
                 break;
         }
-    }
+    }*/
 
-    private void PlayerLostPoint(string player)
+    /*private void PlayerLostPoint(string player)
     {
         switch (player)
         {
@@ -76,7 +76,7 @@ public class PointsManager : MonoBehaviour
                 players[3] = Mathf.Clamp(players[3] - 1, 0, 100);
                 break;
         }
-    }
+    }*/
 
     private void CheckWinner()
     {
@@ -151,15 +151,19 @@ public class PointsManager : MonoBehaviour
     private void UpdatePoints()
     {
         var p1 = EventManager.Instance.GetPlayer1Kills();
+        players[0] = p1.Count;
         var p2 = EventManager.Instance.GetPlayer2Kills();
+        players[1] = p2.Count;
         var p3 = EventManager.Instance.GetPlayer3Kills();
+        players[2] = p3.Count;
         var p4 = EventManager.Instance.GetPlayer4Kills();
+        players[3] = p4.Count;
 
         pointsScreem.SetActive(true);
 
         for(int i = 0;i < PointsMax;i++)
         {
-            if (i <= p1.Count - 1 && i <= players[0])
+            if (i <= p1.Count - 1)
             {
                 player1Points[i].sprite = killSprite[p1[i]];
             }
@@ -168,7 +172,7 @@ public class PointsManager : MonoBehaviour
                 player1Points[i].sprite = baseSprite;
             }
 
-            if (i <= p2.Count - 1 && i <= players[1])
+            if (i <= p2.Count - 1)
             {
                 player2Points[i].sprite = killSprite[p2[i]];
             }
@@ -177,7 +181,7 @@ public class PointsManager : MonoBehaviour
                 player2Points[i].sprite = baseSprite;
             }
 
-            if (i <= p3.Count - 1 && i <= players[2])
+            if (i <= p3.Count - 1)
             {
                 player3Points[i].sprite = killSprite[p3[i]];
             }
@@ -186,7 +190,7 @@ public class PointsManager : MonoBehaviour
                 player3Points[i].sprite = baseSprite;
             }
 
-            if (i <= p4.Count - 1 && i <= players[3])
+            if (i <= p4.Count - 1)
             {
                 player4Points[i].sprite = killSprite[p4[i]];
             }
@@ -213,20 +217,14 @@ public class PointsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.PlayerKilled += PlayerGotPoint;
-        EventManager.PlayerDead += PlayerLostPoint;
         EventManager.EndMatch += UpdatePoints;
         EventManager.PlayerWin += ResetGamePoints;
-        EventManager.PlayerSurvived += PlayerSurvived;
     }
 
     private void OnDisable()
     {
-        EventManager.PlayerKilled -= PlayerGotPoint;
-        EventManager.PlayerDead -= PlayerLostPoint;
         EventManager.EndMatch -= UpdatePoints;
         EventManager.PlayerWin -= ResetGamePoints;
-        EventManager.PlayerSurvived -= PlayerSurvived;
     }
 
 }

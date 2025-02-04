@@ -126,8 +126,7 @@ public class PlayerController : MonoBehaviour
         if(gameObject.name == player) 
         {
             EventManager.Instance.OnPlayerDead(player);
-            EventManager.Instance.PlayerKillHimSelf(player);
-
+            //EventManager.Instance.PlayerKillHimSelf(player);
         }
         else
         {
