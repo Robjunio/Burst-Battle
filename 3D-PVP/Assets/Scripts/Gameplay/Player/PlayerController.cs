@@ -67,6 +67,11 @@ public class PlayerController : MonoBehaviour
         {
             Die(collision.gameObject.name);
         }
+       
+        if (collision.gameObject.CompareTag("WaterHazard"))
+        {
+            Die(collision.gameObject.name);
+        }
 
         if (collision.gameObject.CompareTag("Bubble"))
         {

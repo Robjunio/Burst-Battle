@@ -8,11 +8,13 @@ TagManager:
   - Bubble
   - PowerUp
   - Vfx
+  - Wall
+  - WaterHazard
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - VFX
