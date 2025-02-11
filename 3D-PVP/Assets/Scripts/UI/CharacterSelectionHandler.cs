@@ -9,8 +9,9 @@ public class CharacterSelectionHandler : MonoBehaviour
 
     private void HandlePlayerInGame()
     {
-        var players = EventManager.Instance.GetPlayers();
-        for (int i = 0; i < players.Count; i++)
+        var players = EventManager.Instance.GetPlayers().Count > 0 ? 
+            EventManager.Instance.GetPlayers().Count : EventManager.Instance.GetNetcodePlayers().Count;
+        for (int i = 0; i < players; i++)
         {
             playerImages[i].sprite = characterSprites[i];
             characterPressToStart[i].SetActive(false);

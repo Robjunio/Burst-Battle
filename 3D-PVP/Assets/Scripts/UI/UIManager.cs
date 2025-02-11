@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Singleton;
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Character;
     [SerializeField] GameObject VictoryScreen;
     [SerializeField] AudioSource AudioSource;
+
+    private void Awake()
+    {
+        Singleton = this;
+    }
 
     private void StartMenu()
     {
@@ -15,6 +21,11 @@ public class UIManager : MonoBehaviour
     private void StartCharacter()
     {
         Character.SetActive(true);
+    }
+
+    public void DisableStartCharacter()
+    {
+        Character.SetActive(false);
     }
 
     private void StartVictoryScreen() 

@@ -1,8 +1,9 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using Unity.Netcode;
 
-public class PrepareMap : MonoBehaviour
+public class NetcodePrepareMap : NetworkBehaviour
 {
     //[SerializeField] GameObject foam;
     [SerializeField] TMP_Text playerWinner;
@@ -14,31 +15,43 @@ public class PrepareMap : MonoBehaviour
     [SerializeField] Vector3[] playerSpawnPosition;
     [SerializeField] Vector3[] playerSpawnRotation;
 
-    private void StartMap() 
+    private void StartMap()
     {
-        //foam.SetActive(false);
-        //water.SetActive(true);
-        water.transform.DOMoveY(-0.5f, 0.1f);
-        water.tag = "Death";
-        map.SetActive(true);
+        if (!IsServer) return;
 
-        var players = EventManager.Instance.GetPlayers();
-        
+        StartMapClientRpc();
+
+        var players = EventManager.Instance.GetNetcodePlayers();
+
         for (int i = 0; i < players.Count; i++)
         {
             players[i].transform.SetPositionAndRotation(playerSpawnPosition[i], Quaternion.Euler(playerSpawnRotation[i]));
             players[i].ResetPlayer();
         }
-        
+
+    }
+
+    [ClientRpc]
+    private void StartMapClientRpc()
+    {
+        //foam.SetActive(false);
+        //water.SetActive(true);
+
+        water.transform.DOMoveY(-0.5f, 0.1f);
+        water.tag = "Death";
+        map.SetActive(true);
     }
 
     public void ResetWater()
     {
+        if(!IsServer) return;
         water.transform.DOMoveY(-0.5f, 0.1f);
     }
 
     private void OnVictory(string player)
     {
+        if (!IsServer) return;
+
         map.SetActive(false);
         water.tag = "Player";
         water.transform.DOMoveY(-5f, 1f).OnComplete(() =>

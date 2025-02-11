@@ -10,6 +10,9 @@ public class EventManager : MonoBehaviour
 
     List<PlayerController> players = new List<PlayerController>();
 
+    List<NetcodePlayerController> netcodePlayers = new List<NetcodePlayerController>();
+
+
     List<int> player1KillsIds = new List<int>();
     List<int> player2KillsIds = new List<int>();
     List<int> player3KillsIds = new List<int>();
@@ -48,9 +51,16 @@ public class EventManager : MonoBehaviour
         PlayerEnter?.Invoke();
     }
 
+    public void NetcodePlayerEnterInGame(NetcodePlayerController controller)
+    {
+        netcodePlayers.Add(controller);
+
+        PlayerEnter?.Invoke();
+    }
+
     public void OnPlayersReady()
     {
-        playersCount = players.Count;
+        playersCount = players.Count > 0 ? players.Count : netcodePlayers.Count;
         PlayersReady?.Invoke();
     }
 
@@ -150,6 +160,11 @@ public class EventManager : MonoBehaviour
     public List<PlayerController> GetPlayers()
     {
         return players;
+    }
+
+    public List<NetcodePlayerController> GetNetcodePlayers()
+    {
+        return netcodePlayers;
     }
 
     public void PlayerWasKilled(string playerKilled, string playerKiller)
