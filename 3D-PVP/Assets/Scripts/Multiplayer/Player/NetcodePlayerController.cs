@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Player;
+using System;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -23,13 +24,20 @@ public class NetcodePlayerController : NetworkBehaviour
     public bool dead;
 
     private GameActions gameActions;
+
+    private NetworkVariable<int> _powerUpCollected = new NetworkVariable<int>(
+        0,
+        NetworkVariableReadPermission.Everyone,
+        NetworkVariableWritePermission.Server
+        ); 
+
     private void Awake()
     {
         gameActions = new GameActions();
         gameActions.Player.Enable();
 
         deathEffect = Resources.Load<GameObject>("Prefabs/BubbleDeathParticle"); 
-        ripple = Resources.Load<GameObject>("Prefabs/RippleVFX"); 
+        ripple = Resources.Load<GameObject>("Multiplayer/Prefabs/Netcode_RippleVFX"); 
 
         var list = FindObjectsOfType<NetcodePlayerController>();
 
@@ -68,7 +76,8 @@ public class NetcodePlayerController : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(dead) return;
+        if (dead) return;
+        if (!IsServer) return;
         if (collision.gameObject.CompareTag("Death"))
         {
             Die(collision.gameObject.name);
@@ -83,6 +92,8 @@ public class NetcodePlayerController : NetworkBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         if (dead) return;
+        if (!IsServer) return;
+
         if (collision.gameObject.CompareTag("Death"))
         {
             Die(collision.gameObject.name);
@@ -91,9 +102,23 @@ public class NetcodePlayerController : NetworkBehaviour
         if (collision.gameObject.CompareTag("PowerUp"))
         {
             var powerUp = collision.gameObject.GetComponent<NetcodePowerUp>();
-            attackSystem.SetPowerUp(powerUp.GetPower());
+            if(_powerUpCollected.Value == powerUp.GetPower().GetPowerUpID())
+            {
+                UpdatePowerUpClientRpc();
+            }
+            else
+            {
+                _powerUpCollected.Value = powerUp.GetPower().GetPowerUpID();
+            }
+
             powerUp.DestroyPowerUp();
         }
+    }
+
+    [ClientRpc]
+    private void UpdatePowerUpClientRpc()
+    {
+        attackSystem.SetPowerUp(NetcodePowerUpManager.Singleton.powerUps[_powerUpCollected.Value]);
     }
 
     private void HandlerBubbleAttack(string player)
@@ -120,31 +145,43 @@ public class NetcodePlayerController : NetworkBehaviour
 
     private void Die(string player)
     {
-        AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/733264__arttim__bubble_pop"), Camera.main.transform.position);
-        StartCoroutine(FreezeTime());
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
         dead = true;
-        attackSystem.alive = false;
-        attackSystem.ResetPowerUp();
 
-        movementSystem.alive = false;
-
-        if(gameObject.name == player) 
+        if (gameObject.name == player)
         {
             EventManager.Instance.OnPlayerDead(player);
             //EventManager.Instance.PlayerKillHimSelf(player);
         }
         else
         {
-            if(player == "bath_water") 
-            { 
-                Instantiate(ripple, new Vector3(transform.position.x, 7f, transform.position.z), Quaternion.Euler(90,0,0));
-            }
-
             EventManager.Instance.PlayerWasKilled(gameObject.name, player);
             EventManager.Instance.OnPlayerKilled(player);
         }
-        
+
+        if (player == "bath_water")
+        {
+            NetworkObject rippleEffect = NetworkObjectPool.Singleton.GetNetworkObject(ripple, new Vector3(transform.position.x, 7f, transform.position.z), Quaternion.Euler(90, 0, 0));
+            rippleEffect.Spawn();
+        }
+
+        DieClientRpc();
+    }
+
+    [ClientRpc]
+    private void DieClientRpc()
+    {
+        AudioSource.PlayClipAtPoint(Resources.Load<AudioClip>("Audio/733264__arttim__bubble_pop"), Camera.main.transform.position);
+
+        StartCoroutine(FreezeTime());
+
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        attackSystem.alive = false;
+        attackSystem.ResetPowerUp();
+
+        dead = true;
+        movementSystem.alive = false;
+
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
     }
@@ -182,5 +219,11 @@ public class NetcodePlayerController : NetworkBehaviour
     {
         EventManager.Instance.NetcodePlayerEnterInGame(this);
         EventManager.StartMatch += StartPlayer;
+        _powerUpCollected.OnValueChanged += UpdatePowerUp;
+    }
+
+    private void UpdatePowerUp(int previousValue, int newValue)
+    {
+        attackSystem.SetPowerUp(NetcodePowerUpManager.Singleton.powerUps[newValue]);
     }
 }

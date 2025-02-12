@@ -99,6 +99,7 @@ public class EventManager : MonoBehaviour
     // Player kills himself
     public void OnPlayerDead(string player) 
     {
+        print(matchEnded);
         if (matchEnded) return;
         PlayerDead?.Invoke(player);
         playersCount--;

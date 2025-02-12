@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 public class NetcodePowerUpManager : NetworkBehaviour
 {
+    public static NetcodePowerUpManager Singleton;
+
     public delegate void PowerUpEvent();
     public static PowerUpEvent PowerUpCollected;
 
     private GameObject PowerUpPrefab;
-    private List<IPowerUp> powerUps = new List<IPowerUp>();
+    public List<IPowerUp> powerUps = new List<IPowerUp>();
     [SerializeField] private Vector3[] startingPoints;
 
     private List<NetworkObject> powerUpsObj = new List<NetworkObject>();
@@ -23,15 +26,17 @@ public class NetcodePowerUpManager : NetworkBehaviour
     bool canCreate;
     void Awake()
     {
+        Singleton = this;
+
         PowerUpPrefab = Resources.Load<GameObject>("Multiplayer/Prefabs/Netcode_PowerUp");
 
-        var powerUp1 = GetComponent<Soap>();
-        var powerUp2 = GetComponent<BathBombHandler>();
-        var powerUp3 = GetComponent<BubbleGun>();
+        var powerUp1 = GetComponent<NetcodeSoap>();
+        var powerUp2 = GetComponent<NetcodeBathBombHandler>();
+        var powerUp3 = GetComponent<NetcodeBubbleGun>();
 
+        powerUps.Add(powerUp3);
         powerUps.Add(powerUp1);
         powerUps.Add(powerUp2);
-        powerUps.Add(powerUp3);
     }
 
     private void StartPowerUps()
@@ -48,7 +53,7 @@ public class NetcodePowerUpManager : NetworkBehaviour
 
     private void RemovePowerUp()
     {
-        if (!IsHost) return;
+        if (!IsServer) return;
 
         currentPowerUpsOnMap--;
 
@@ -65,11 +70,7 @@ public class NetcodePowerUpManager : NetworkBehaviour
         yield return new WaitForSeconds(2f);
         InstancePowerUp(normalPowerUpPosition);
     }
-    [ServerRpc]
-    private void ShootServerRpc()
-    {
-        
-    }
+
     private void InstancePowerUp(Vector3 position)
     {
         int randomPowerUpID = Random.Range(0, powerUps.Count);
@@ -106,6 +107,7 @@ public class NetcodePowerUpManager : NetworkBehaviour
             }
         }
 
+        currentPowerUpsOnMap = 0;
         powerUpsObj.Clear();
     }
 

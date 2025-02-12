@@ -26,9 +26,19 @@ public class NetcodePrepareMap : NetworkBehaviour
         for (int i = 0; i < players.Count; i++)
         {
             players[i].transform.SetPositionAndRotation(playerSpawnPosition[i], Quaternion.Euler(playerSpawnRotation[i]));
-            players[i].ResetPlayer();
         }
 
+        ResetPlayersClientRpc();
+    }
+    [ClientRpc]
+    private void ResetPlayersClientRpc()
+    {
+        var players = EventManager.Instance.GetNetcodePlayers();
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            players[i].ResetPlayer();
+        }
     }
 
     [ClientRpc]
