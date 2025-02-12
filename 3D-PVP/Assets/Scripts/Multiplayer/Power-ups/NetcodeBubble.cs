@@ -6,13 +6,14 @@ public class NetcodeBubble : NetworkBehaviour
     private Animator _animator;
     private SphereCollider _collider;
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
+        base.OnNetworkSpawn();
+
         _animator = GetComponentInChildren<Animator>();
         TryGetComponent(out _collider);
+        _collider.enabled = true;
     }
-
-    private void OnNetworkSpawn() => _collider.enabled = true;
 
     private void OnCollisionEnter(Collision collision)
     {

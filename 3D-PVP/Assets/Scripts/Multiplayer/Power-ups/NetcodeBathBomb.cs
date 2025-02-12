@@ -2,14 +2,17 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using Unity.Netcode;
+using System;
 
 public class NetcodeBathBomb : NetworkBehaviour
 {
     GameObject bomb;
     bool exploded = false;
 
-    private void OnNetworkSpawn()
+    public override void OnNetworkSpawn()
     {
+        base.OnNetworkSpawn();
+
         bomb = Resources.Load<GameObject>("Prefabs/BubbleExplosionParticle");
         transform.GetChild(0).name = gameObject.name;
         transform.GetChild(0).gameObject.SetActive(false);
@@ -18,9 +21,9 @@ public class NetcodeBathBomb : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (exploded && !IsServer) return;
-        
-        //Instantiate(bomb, transform.position, Quaternion.identity);
+        if (exploded || !IsServer) return;
+
+        ExplodeClientRpc();
     }
 
     [ClientRpc]
@@ -31,6 +34,8 @@ public class NetcodeBathBomb : NetworkBehaviour
 
     IEnumerator Explode()
     {
+        Instantiate(bomb, transform.position, Quaternion.identity);
+
         exploded = true;
         Camera.main.transform.DOShakePosition(0.5f);
 
