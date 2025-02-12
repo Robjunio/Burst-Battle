@@ -559,6 +559,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2814950343112716879, guid: 85467f86a5c0a0e40a6841adc2fe29d7,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814950343112716879, guid: 85467f86a5c0a0e40a6841adc2fe29d7,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814950343112716879, guid: 85467f86a5c0a0e40a6841adc2fe29d7,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814950343112716879, guid: 85467f86a5c0a0e40a6841adc2fe29d7,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814950343112716879, guid: 85467f86a5c0a0e40a6841adc2fe29d7,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3029007344364074470, guid: 85467f86a5c0a0e40a6841adc2fe29d7,
         type: 3}
       propertyPath: m_IsActive

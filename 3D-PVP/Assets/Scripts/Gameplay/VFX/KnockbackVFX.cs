@@ -17,18 +17,23 @@ public class KnockbackVFX : MonoBehaviour
     void Start()
     {
         PlayerRB = PlayerPrefab.GetComponent<Rigidbody>();
-        
+        EventManager.StartMatch += DiableEffect;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.StartMatch -= DiableEffect;
     }
 
 
      void OnCollisionEnter(Collision collision)
      {
-        if (collision.gameObject.CompareTag("Death"))
+        if (collision.gameObject.CompareTag("Death") && collision.gameObject.GetComponent<Rigidbody>() != null)
         {
            
             HazardRB = collision.gameObject.GetComponent<Rigidbody>();
             moveDirection = PlayerRB.transform.position - HazardRB.transform.position;
-            PlayerRB.AddForce(moveDirection.normalized * 2000f);
+            PlayerRB.AddForce(moveDirection.normalized * 1500f);
             KnockBackVFX.SetActive(true);
 
             
@@ -39,6 +44,32 @@ public class KnockbackVFX : MonoBehaviour
             KnockBackDeathVFX.SetActive(true);
             KnockBackVFX.SetActive(false);
         }
+     }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Death") && collider.gameObject.GetComponent<Rigidbody>() != null)
+        {
+
+            HazardRB = collider.gameObject.GetComponent<Rigidbody>();
+            moveDirection = PlayerRB.transform.position - HazardRB.transform.position;
+            PlayerRB.AddForce(moveDirection.normalized * 1500f);
+            KnockBackVFX.SetActive(true);
+
+
+        }
+
+        if (collider.gameObject.CompareTag("Wall") && PlayerController.dead)
+        {
+            KnockBackDeathVFX.SetActive(true);
+            KnockBackVFX.SetActive(false);
+        }
     }
-   
+
+    private void DiableEffect()
+    {
+        
+        KnockBackDeathVFX.SetActive(false);
+        KnockBackVFX.SetActive(false);
+    }
+
 }
