@@ -17,12 +17,14 @@ public class KnockbackVFX : MonoBehaviour
     void Start()
     {
         PlayerRB = PlayerPrefab.GetComponent<Rigidbody>();
-        EventManager.StartMatch += DiableEffect;
+        EventManager.StartMatch += EnableRBConstrains;
+        EventManager.EndMatch += DiableEffect;
     }
 
     private void OnDestroy()
     {
-        EventManager.StartMatch -= DiableEffect;
+        EventManager.EndMatch -= DiableEffect;
+        EventManager.StartMatch -= EnableRBConstrains;
     }
 
 
@@ -35,14 +37,16 @@ public class KnockbackVFX : MonoBehaviour
             moveDirection = PlayerRB.transform.position - HazardRB.transform.position;
             PlayerRB.AddForce(moveDirection.normalized * 1500f);
             KnockBackVFX.SetActive(true);
+            PlayerPrefab.layer = LayerMask.NameToLayer("DeadLayer");
 
-            
+
         }
 
         if (collision.gameObject.CompareTag("Wall") && PlayerController.dead)
         {
             KnockBackDeathVFX.SetActive(true);
-            KnockBackVFX.SetActive(false);
+            
+            PlayerRB.constraints = RigidbodyConstraints.FreezeAll;
         }
      }
     void OnTriggerEnter(Collider collider)
@@ -54,6 +58,7 @@ public class KnockbackVFX : MonoBehaviour
             moveDirection = PlayerRB.transform.position - HazardRB.transform.position;
             PlayerRB.AddForce(moveDirection.normalized * 1500f);
             KnockBackVFX.SetActive(true);
+            PlayerPrefab.layer = LayerMask.NameToLayer("DeadLayer");
 
 
         }
@@ -61,7 +66,10 @@ public class KnockbackVFX : MonoBehaviour
         if (collider.gameObject.CompareTag("Wall") && PlayerController.dead)
         {
             KnockBackDeathVFX.SetActive(true);
-            KnockBackVFX.SetActive(false);
+            
+            PlayerRB.constraints = RigidbodyConstraints.FreezeAll;
+
+
         }
     }
 
@@ -70,6 +78,15 @@ public class KnockbackVFX : MonoBehaviour
         
         KnockBackDeathVFX.SetActive(false);
         KnockBackVFX.SetActive(false);
+        
     }
+
+    private void EnableRBConstrains()
+    {
+        PlayerPrefab.layer = LayerMask.NameToLayer("Default");
+        PlayerRB.constraints = RigidbodyConstraints.None;
+        PlayerRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+    }
+    
 
 }
