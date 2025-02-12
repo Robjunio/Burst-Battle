@@ -212,6 +212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: container_bathroom_B_blue
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7504a4ccc6f62e14bb134d2bb4cdd65d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -426,6 +431,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: floor_tiled (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a7f4b8329e4a3048ad12170a84b051a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1341,6 +1351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mat
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85c842b5a9035134a83a7a0eb00448ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1686,6 +1701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4dc0ffd4f42448844be8c19abc497bf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2609,6 +2629,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor_tiled
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a7f4b8329e4a3048ad12170a84b051a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2861,6 +2886,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: container_bathroom_B_pink
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f5d83c7dfba7fc34e897030aa41fc0d6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3299,6 +3329,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: towel_stacked
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1eb1c7be45f081a4282640c6dad20002,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3639,6 +3674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wall_shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6957d38d24d72594ca44ce20ad3a9f49,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4808,6 +4848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: container_bathroom_C_yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6795422c7d229849858685f481f7356,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5096,6 +5141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4dc0ffd4f42448844be8c19abc497bf9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5722,6 +5772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: floor_tiled (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a7f4b8329e4a3048ad12170a84b051a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6637,6 +6692,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wall_tiled_straight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d413e743f9f4b546a8063de3634baf2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6893,6 +6953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: container_bathroom_C_blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a6f0d8192ca38fa49913e98dc3df3e8d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7881,6 +7946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: slippers
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6f7980f9d442c284b8d884ed6e293db5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8049,6 +8119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cabinet_bathroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6cad95a2ab9edb949a180f39e4993686,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8355,6 +8430,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: toothbrush_cup_decorated
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 850c486cda7178649880f0b25b48cdb5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8683,6 +8763,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: towel_stacked
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1eb1c7be45f081a4282640c6dad20002,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9405,8 +9490,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8325128856613536211, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8325128856613536211, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8325128856613536211, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -7733232110744614026, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7733232110744614026, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
@@ -9416,12 +9516,22 @@ PrefabInstance:
     - target: {fileID: -7733232110744614026, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
       propertyPath: m_TagString
-      value: Death
+      value: WaterHazard
+      objectReference: {fileID: 0}
+    - target: {fileID: -5717186626149116252, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5717186626149116252, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5717186626149116252, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -3930501294363888737, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
@@ -9432,6 +9542,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BANHEIRA_ORIGINAL
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9095704600479312397, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
@@ -9731,7 +9851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64900005, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.1854248, y: -5.6046753}
+  m_AnchoredPosition: {x: 0.1854248, y: -5.6047363}
   m_SizeDelta: {x: 1.6309073, y: -3.2107234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1419171875
@@ -10419,6 +10539,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: container_bathroom_B_blue (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7504a4ccc6f62e14bb134d2bb4cdd65d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10517,6 +10642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wall_tiled_window
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b79bf13a64ca670489bd1e33dc3514b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10921,7 +11051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36816671, y: 0}
   m_AnchorMax: {x: 0.64900005, y: 1}
-  m_AnchoredPosition: {x: -1, y: -2.000061}
+  m_AnchoredPosition: {x: -1, y: -2}
   m_SizeDelta: {x: -5, y: -5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665846123
@@ -11398,6 +11528,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ducky
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76fcd815dd1f8054fa398a2b82d8833f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11723,6 +11858,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: floor_tiled (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9a7f4b8329e4a3048ad12170a84b051a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11816,6 +11956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wall_tiled_corner_inner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 285ee40e55b51124b93a9cc908c6ad63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11982,6 +12127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: container_bathroom_A_pink
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7def62ced097e5f4ebf96013a4808dc5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12439,6 +12589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: wall_shelf (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6957d38d24d72594ca44ce20ad3a9f49,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13234,6 +13389,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mirror
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6dedbe9df1936e47b588d32182e8140,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13383,6 +13543,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FOAM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d845e43caf3efba4d807c47d61368fc9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d845e43caf3efba4d807c47d61368fc9,
         type: 3}
@@ -13931,7 +14096,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
