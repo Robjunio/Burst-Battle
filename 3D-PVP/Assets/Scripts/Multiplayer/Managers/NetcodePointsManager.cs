@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 using System;
+using Unity.VisualScripting;
 
 [Serializable]
 public struct PlayersScore : IEquatable<PlayersScore>, INetworkSerializable
@@ -100,6 +101,8 @@ public struct PlayersScore : IEquatable<PlayersScore>, INetworkSerializable
 
 public class NetcodePointsManager : NetworkBehaviour
 {
+    public static NetcodePointsManager Singleton;
+
     [SerializeField] private GameObject pointsScreem;
     [SerializeField] private GameObject transition;
 
@@ -126,6 +129,16 @@ public class NetcodePointsManager : NetworkBehaviour
         NetworkVariableReadPermission.Everyone,
         NetworkVariableWritePermission.Server
         );
+
+    private void Awake()
+    {
+        Singleton = this;
+    }
+
+    public int GetWinner()
+    {
+        return _winner.Value;
+    }
 
     /*private void PlayerGotPoint(string player)
     {

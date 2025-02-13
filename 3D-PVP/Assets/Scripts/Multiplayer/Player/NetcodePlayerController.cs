@@ -160,7 +160,7 @@ public class NetcodePlayerController : NetworkBehaviour
 
         if (player == "bath_water")
         {
-            NetworkObject rippleEffect = NetworkObjectPool.Singleton.GetNetworkObject(ripple, new Vector3(transform.position.x, 7f, transform.position.z), Quaternion.Euler(90, 0, 0));
+            NetworkObject rippleEffect = NetworkObjectPool.Singleton.GetNetworkObject(ripple, new Vector3(transform.position.x, 7.1f, transform.position.z), Quaternion.Euler(90, 0, 0));
             rippleEffect.Spawn();
         }
 

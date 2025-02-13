@@ -10,7 +10,8 @@ public class NetcodePrepareMap : NetworkBehaviour
     [SerializeField] TMP_Text playerWinnerShadow;
 
     [SerializeField] GameObject water;
-    [SerializeField] GameObject map;
+    [SerializeField] Transform mapTransform;
+    NetworkObject map;
 
     [SerializeField] Vector3[] playerSpawnPosition;
     [SerializeField] Vector3[] playerSpawnRotation;
@@ -20,6 +21,20 @@ public class NetcodePrepareMap : NetworkBehaviour
         if (!IsServer) return;
 
         StartMapClientRpc();
+
+        if (map == null)
+        {
+            GameObject mapPrefab = Resources.Load<GameObject>("Multiplayer/Prefabs/Foam");
+
+            map = NetworkObjectPool.Singleton.GetNetworkObject(mapPrefab, mapTransform.position, mapTransform.rotation);
+            map.transform.localScale = mapTransform.localScale * 10;
+            map.Spawn();
+        }
+        else if (!map.IsSpawned)
+        {
+            map.transform.localScale = mapTransform.localScale * 10;
+            map.Spawn();
+        }
 
         var players = EventManager.Instance.GetNetcodePlayers();
 
@@ -47,41 +62,49 @@ public class NetcodePrepareMap : NetworkBehaviour
         //foam.SetActive(false);
         //water.SetActive(true);
 
-        water.transform.DOMoveY(-0.5f, 0.1f);
+        water.transform.DOMoveY(-0.4f, 0.1f);
         water.tag = "Death";
-        map.SetActive(true);
     }
 
     public void ResetWater()
     {
-        if(!IsServer) return;
-        water.transform.DOMoveY(-0.5f, 0.1f);
+        water.transform.DOMoveY(-0.4f, 0.1f);
     }
 
     private void OnVictory(string player)
     {
         if (!IsServer) return;
 
-        map.SetActive(false);
+        map.Despawn();
+
+        OnVictoryClientRpc();
+    }
+
+    [ClientRpc]
+    private void OnVictoryClientRpc()
+    {
         water.tag = "Player";
         water.transform.DOMoveY(-5f, 1f).OnComplete(() =>
         {
             EventManager.Instance.OnReachVictory();
         });
 
-        playerWinner.text = "Winner\n" + player;
-        playerWinnerShadow.text = "Winner\n" + player;
+        playerWinner.text = "Winner\n" + "Player " + NetcodePointsManager.Singleton.GetWinner();
+        playerWinnerShadow.text = "Winner\n" + "Player " + NetcodePointsManager.Singleton.GetWinner();
     }
 
     private void OnEnable()
     {
         EventManager.PlayersReady += StartMap;
         EventManager.PlayerWin += OnVictory;
+        EventManager.ReachMenu += ResetWater;
     }
 
     private void OnDisable()
     {
         EventManager.PlayersReady -= StartMap;
         EventManager.PlayerWin -= OnVictory;
+        EventManager.ReachMenu -= ResetWater;
+
     }
 }

@@ -76,6 +76,7 @@ namespace Player
         public void OnDash(InputAction.CallbackContext ctx)
         {
             if (!alive || !IsOwner) return;
+
             if (!_canDash)
             {
                 var diff = Time.time - _timmer;
@@ -87,7 +88,15 @@ namespace Player
                 return;
             }
 
-            _animator.SetTrigger("Dash");
+            _timmer = Time.time;
+            _canDash = false;
+            DashServerRpc();
+        }
+
+        [ServerRpc]
+        private void DashServerRpc()
+        {
+            DashClientRpc();
 
             currentScale = transform.localScale;
 
@@ -99,11 +108,17 @@ namespace Player
                 transform.rotation = rot;
             }
 
-            _rb.AddForce(transform.forward * _dashForce  * transform.localScale.x, ForceMode.Impulse);
+            _rb.AddForce(transform.forward * _dashForce * transform.localScale.x, ForceMode.Impulse);
 
             _timmer = Time.time;
             _canDash = false;
             _rb.mass = 1 * transform.localScale.x;
+        }
+
+        [ClientRpc]
+        private void DashClientRpc()
+        {
+            _animator.SetTrigger("Dash");
         }
 
         private void Update()

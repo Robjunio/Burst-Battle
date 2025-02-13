@@ -43,6 +43,36 @@ public class NetcodeCameraMovement : NetworkBehaviour
         Camera.main.fieldOfView = cameraPoints[0].FOV;
     }
 
+    public void RestartingMovement()
+    {
+        if (IsServer)
+        {
+            RestartingClientRPC();
+        }
+    }
+
+    [ClientRpc]
+    private void RestartingClientRPC()
+    {
+        UIManager.Singleton.DisableVictoryScreen();
+        MoveToCharacterSelection();
+    }
+
+    public void ToMenuMovement()
+    {
+        if (IsServer)
+        {
+            ToMenuClientRPC();
+        }
+    }
+
+    [ClientRpc]
+    private void ToMenuClientRPC()
+    {
+        UIManager.Singleton.DisableVictoryScreen();
+        MoveToMenu();
+    }
+
     public void MoveToCharacterSelection()
     {
         transform.DOMove(cameraPoints[2].pointTransform.position, 0.8f);

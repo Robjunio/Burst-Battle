@@ -32,6 +32,11 @@ public class UIManager : MonoBehaviour
     { 
         VictoryScreen.SetActive(true);
     }
+    
+    public void DisableVictoryScreen()
+    {
+        VictoryScreen.SetActive(false);
+    }
 
     public void Exit()
     {

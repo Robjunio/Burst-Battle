@@ -8,7 +8,7 @@ public class NetcodeFoam : NetworkBehaviour
     private void StartBattle()
     {
         if (!IsServer) return;
-        transform.DOScale(new Vector3(0.5f, 0.9f, 0.5f), 20f).SetEase(Ease.InQuart);
+        transform.DOScale(new Vector3(5f, 9f, 5f), 20f).SetEase(Ease.InQuart);
     }
 
     private void EndBattle()
@@ -16,7 +16,7 @@ public class NetcodeFoam : NetworkBehaviour
         if (!IsServer) return;
         DOTween.Complete(transform);
 
-        transform.localScale = new Vector3(1f, 0.9f, 1f);
+        transform.localScale = new Vector3(10f, 9f, 10f);
     }
 
     private void OnEnable()
