@@ -10,6 +10,9 @@ public class EventManager : MonoBehaviour
 
     List<PlayerController> players = new List<PlayerController>();
 
+    List<NetcodePlayerController> netcodePlayers = new List<NetcodePlayerController>();
+
+
     List<int> player1KillsIds = new List<int>();
     List<int> player2KillsIds = new List<int>();
     List<int> player3KillsIds = new List<int>();
@@ -32,6 +35,7 @@ public class EventManager : MonoBehaviour
     public static event UIEvent ReachCharacter;
     public static event UIEvent ReachGameplay;
     public static event UIEvent ReachVictory;
+    public static event UIEvent ReachJoinRoom;
 
     private int playersCount;
     private bool matchEnded;
@@ -48,9 +52,16 @@ public class EventManager : MonoBehaviour
         PlayerEnter?.Invoke();
     }
 
+    public void NetcodePlayerEnterInGame(NetcodePlayerController controller)
+    {
+        netcodePlayers.Add(controller);
+
+        PlayerEnter?.Invoke();
+    }
+
     public void OnPlayersReady()
     {
-        playersCount = players.Count;
+        playersCount = players.Count > 0 ? players.Count : netcodePlayers.Count;
         PlayersReady?.Invoke();
     }
 
@@ -89,6 +100,7 @@ public class EventManager : MonoBehaviour
     // Player kills himself
     public void OnPlayerDead(string player) 
     {
+        print(matchEnded);
         if (matchEnded) return;
         PlayerDead?.Invoke(player);
         playersCount--;
@@ -142,6 +154,11 @@ public class EventManager : MonoBehaviour
         ReachVictory?.Invoke();
     }
 
+    public void OnReachJoinRoom()
+    {
+        ReachJoinRoom?.Invoke();
+    }
+
     public void OnPlayerWin(string player)
     {
         PlayerWin?.Invoke(player);
@@ -150,6 +167,16 @@ public class EventManager : MonoBehaviour
     public List<PlayerController> GetPlayers()
     {
         return players;
+    }
+
+    public List<NetcodePlayerController> GetNetcodePlayers()
+    {
+        return netcodePlayers;
+    }
+
+    public void ClearNetcodePlayers()
+    {
+        netcodePlayers.Clear();
     }
 
     public void PlayerWasKilled(string playerKilled, string playerKiller)

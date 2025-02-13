@@ -9,6 +9,7 @@ public class Bubble : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         TryGetComponent(out _collider);
+        _collider.enabled = true;
     }
 
     private void OnCollisionEnter(Collision collision)

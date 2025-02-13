@@ -23,13 +23,13 @@ public class PrepareMap : MonoBehaviour
         map.SetActive(true);
 
         var players = EventManager.Instance.GetPlayers();
-
+        
         for (int i = 0; i < players.Count; i++)
         {
-            players[i].transform.position = playerSpawnPosition[i];
-            players[i].transform.rotation = Quaternion.Euler(playerSpawnRotation[i]);
+            players[i].transform.SetPositionAndRotation(playerSpawnPosition[i], Quaternion.Euler(playerSpawnRotation[i]));
             players[i].ResetPlayer();
         }
+        
     }
 
     public void ResetWater()

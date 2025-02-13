@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Singleton;
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Character;
     [SerializeField] GameObject VictoryScreen;
+    [SerializeField] GameObject JoinRoomScreen;
     [SerializeField] AudioSource AudioSource;
+
+    private void Awake()
+    {
+        Singleton = this;
+    }
 
     private void StartMenu()
     {
@@ -17,9 +24,29 @@ public class UIManager : MonoBehaviour
         Character.SetActive(true);
     }
 
+    public void DisableStartCharacter()
+    {
+        Character.SetActive(false);
+    }
+
     private void StartVictoryScreen() 
     { 
         VictoryScreen.SetActive(true);
+    }
+    
+    public void DisableVictoryScreen()
+    {
+        VictoryScreen.SetActive(false);
+    }
+
+    private void StartJoinRoom()
+    {
+        JoinRoomScreen.SetActive(true);
+    }
+
+    public void DisableJoinRoom()
+    {
+        JoinRoomScreen.SetActive(false);
     }
 
     public void Exit()
@@ -37,6 +64,7 @@ public class UIManager : MonoBehaviour
         EventManager.ReachCharacter += StartCharacter;
         EventManager.ReachMenu += StartMenu;
         EventManager.ReachVictory += StartVictoryScreen;
+        EventManager.ReachJoinRoom += StartJoinRoom;
     }
 
     private void OnDisable()
@@ -44,5 +72,6 @@ public class UIManager : MonoBehaviour
         EventManager.ReachMenu -= StartMenu;
         EventManager.ReachCharacter -= StartCharacter;
         EventManager.ReachVictory -= StartVictoryScreen;
+        EventManager.ReachJoinRoom -= StartJoinRoom;
     }
 }

@@ -1,15 +1,36 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class CharacterSelectionHandler : MonoBehaviour
+using Unity.Netcode;
+using TMPro;
+public class NetcodeCharacterSelectionHandler : NetworkBehaviour
 {
     [SerializeField] private Image[] playerImages;
     [SerializeField] private GameObject[] characterPressToStart;
     [SerializeField] private Sprite[] characterSprites;
     [SerializeField] private Sprite baseSprite;
 
+    [SerializeField] private GameObject startGameButton;
+    [SerializeField] private TMP_Text codeText;
+
+    [SerializeField] private TMP_InputField codeInput;
+
     private void HandlePlayerInGame()
     {
-        var players = EventManager.Instance.GetPlayers().Count;
+        if (!IsServer)
+        {
+            startGameButton.SetActive(false);
+        }
+        else
+        {
+            startGameButton.SetActive(true);
+        }
+
+        if (codeInput.text != string.Empty)
+        {
+            codeText.text = codeInput.text;
+        }
+
+        var players = EventManager.Instance.GetNetcodePlayers().Count;
         for (int i = 0; i < players; i++)
         {
             playerImages[i].sprite = characterSprites[i];
