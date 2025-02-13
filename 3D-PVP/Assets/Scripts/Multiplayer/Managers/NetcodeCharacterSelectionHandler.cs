@@ -14,23 +14,30 @@ public class NetcodeCharacterSelectionHandler : NetworkBehaviour
 
     [SerializeField] private TMP_InputField codeInput;
 
-    private void HandlePlayerInGame()
+
+    private void Start()
     {
-        if (!IsServer)
-        {
-            startGameButton.SetActive(false);
-        }
-        else
+        var players = EventManager.Instance.GetNetcodePlayers().Count; 
+        
+        if (players == 1)
         {
             startGameButton.SetActive(true);
         }
-
-        if (codeInput.text != string.Empty)
+        else
         {
-            codeText.text = codeInput.text;
+            startGameButton.SetActive(false);
         }
+    }
+    private void HandlePlayerInGame()
+    {
+        if (codeInput.text != string.Empty)
+            {
+                codeText.text = codeInput.text;
+            }
 
         var players = EventManager.Instance.GetNetcodePlayers().Count;
+
+        
         for (int i = 0; i < players; i++)
         {
             playerImages[i].sprite = characterSprites[i];

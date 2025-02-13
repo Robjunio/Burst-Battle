@@ -5664,7 +5664,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 797794406}
-  - component: {fileID: 797794407}
   - component: {fileID: 797794408}
   - component: {fileID: 797794410}
   - component: {fileID: 797794409}
@@ -5701,34 +5700,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &797794407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797794405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c172bfea58766469c889cc77fc57be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerImages:
-  - {fileID: 1980097665}
-  - {fileID: 1454979733}
-  - {fileID: 1009252385}
-  - {fileID: 1265360111}
-  characterPressToStart:
-  - {fileID: 793625300}
-  - {fileID: 568305463}
-  - {fileID: 954928717}
-  - {fileID: 337012045}
-  characterSprites:
-  - {fileID: 1509818165, guid: 0a53530439a080a49ba053c083e87960, type: 3}
-  - {fileID: 747139826, guid: e3b27ab545d3c294490f87b46670e058, type: 3}
-  - {fileID: 1284257796, guid: e3b27ab545d3c294490f87b46670e058, type: 3}
-  - {fileID: -560461696, guid: e3b27ab545d3c294490f87b46670e058, type: 3}
-  baseSprite: {fileID: 1374642277, guid: c30c612435d9a9249b153b0b264b7662, type: 3}
 --- !u!114 &797794408
 MonoBehaviour:
   m_ObjectHideFlags: 0

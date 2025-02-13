@@ -228,7 +228,12 @@ public class NetcodePointsManager : NetworkBehaviour
             if (!draw)
             {
                 print("We have a winner");
-                _winner.Value = bestPlayerId;
+                if(_winner.Value == bestPlayerId)
+                {
+                    SetWinnerClientRpc();
+                }
+                else _winner.Value = bestPlayerId;
+                
             }
             else
             {
@@ -248,6 +253,12 @@ public class NetcodePointsManager : NetworkBehaviour
     private void ContinueMatchClientRpc()
     {
         StartCoroutine(ContinueMatch());
+    }
+
+    [ClientRpc]
+    private void SetWinnerClientRpc()
+    {
+        StartCoroutine(SetWinner());
     }
 
     IEnumerator ContinueMatch()

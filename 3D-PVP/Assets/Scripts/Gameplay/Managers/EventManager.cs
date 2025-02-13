@@ -85,14 +85,29 @@ public class EventManager : MonoBehaviour
         playersCount--;
         if(playersCount <= 1)
         {
-            matchEnded = true;
-            foreach (var cont in players)
+            matchEnded = true; 
+            bool online = netcodePlayers.Count > 0 ? true : false;
+            if (online)
             {
-                if (!cont.dead)
+                foreach (var cont in netcodePlayers)
                 {
-                    PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
+                    if (!cont.dead)
+                    {
+                        PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
+                    }
                 }
             }
+            else
+            {
+                foreach (var cont in players)
+                {
+                    if (!cont.dead)
+                    {
+                        PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
+                    }
+                }
+            }
+            
             OnMatchEnded();
         }
     }
@@ -107,11 +122,25 @@ public class EventManager : MonoBehaviour
         if (playersCount <= 1)
         {
             matchEnded = true;
-            foreach (var cont in players)
+            bool online = netcodePlayers.Count > 0 ? true : false;
+            if (online)
             {
-                if (!cont.dead)
+                foreach (var cont in netcodePlayers)
                 {
-                    PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
+                    if (!cont.dead)
+                    {
+                        PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var cont in players)
+                {
+                    if (!cont.dead)
+                    {
+                        PlayerWasKilled(cont.gameObject.name, cont.gameObject.name);
+                    }
                 }
             }
             OnMatchEnded();
