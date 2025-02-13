@@ -174,6 +174,11 @@ public class EventManager : MonoBehaviour
         return netcodePlayers;
     }
 
+    public void ClearNetcodePlayers()
+    {
+        netcodePlayers.Clear();
+    }
+
     public void PlayerWasKilled(string playerKilled, string playerKiller)
     {
         int playerId = 0;

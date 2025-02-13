@@ -222,6 +222,11 @@ public class NetcodePlayerController : NetworkBehaviour
         _powerUpCollected.OnValueChanged += UpdatePowerUp;
     }
 
+    private void DestroyThis(bool obj)
+    {
+        throw new NotImplementedException();
+    }
+
     private void UpdatePowerUp(int previousValue, int newValue)
     {
         attackSystem.SetPowerUp(NetcodePowerUpManager.Singleton.powerUps[newValue]);

@@ -64,6 +64,13 @@ public class NetcodeCameraMovement : NetworkBehaviour
         {
             ToMenuClientRPC();
         }
+        else
+        {
+            UIManager.Singleton.DisableVictoryScreen();
+            UIManager.Singleton.DisableStartCharacter();
+            MoveToMenu();
+            NetworkManager.Singleton.Shutdown();
+        }
     }
 
     [ClientRpc]
@@ -71,6 +78,7 @@ public class NetcodeCameraMovement : NetworkBehaviour
     {
         UIManager.Singleton.DisableVictoryScreen();
         MoveToMenu();
+        NetworkManager.Singleton.Shutdown();
     }
 
     public void MoveToCharacterSelection()
