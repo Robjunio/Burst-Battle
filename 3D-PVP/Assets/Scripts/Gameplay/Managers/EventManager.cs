@@ -35,6 +35,7 @@ public class EventManager : MonoBehaviour
     public static event UIEvent ReachCharacter;
     public static event UIEvent ReachGameplay;
     public static event UIEvent ReachVictory;
+    public static event UIEvent ReachJoinRoom;
 
     private int playersCount;
     private bool matchEnded;
@@ -151,6 +152,11 @@ public class EventManager : MonoBehaviour
     public void OnReachVictory()
     {
         ReachVictory?.Invoke();
+    }
+
+    public void OnReachJoinRoom()
+    {
+        ReachJoinRoom?.Invoke();
     }
 
     public void OnPlayerWin(string player)

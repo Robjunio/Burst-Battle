@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 public enum Points {
     Menu,
     Gameplay,
-    CharacterSelection
+    CharacterSelection,
+    JoinRoom
 }
 
 [Serializable]

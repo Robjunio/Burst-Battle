@@ -83,6 +83,16 @@ public class NetcodeCameraMovement : NetworkBehaviour
         Camera.main.fieldOfView = cameraPoints[2].FOV;
     }
 
+    public void MoveToJoinRoom()
+    {
+        transform.DOMove(cameraPoints[3].pointTransform.position, 0.8f);
+        transform.DORotate(cameraPoints[3].pointTransform.rotation.eulerAngles, 0.8f).OnComplete(() => {
+            EventManager.Instance.OnReachJoinRoom();
+        });
+
+        Camera.main.fieldOfView = cameraPoints[3].FOV;
+    }
+
     private void OnEnable()
     {
         EventManager.PlayersReady += StartingMatchMovement;

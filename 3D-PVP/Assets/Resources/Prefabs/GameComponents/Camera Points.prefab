@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570413150358751663}
   m_Layer: 0
-  m_Name: Gameplay Post Combat - Camera Position (1)
+  m_Name: Join Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,13 +117,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8469179768364322993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 27, z: 4.5}
+  m_LocalRotation: {x: 0.00029873865, y: -0.99802244, z: 0.062851235, w: 0.00088642153}
+  m_LocalPosition: {x: 19.36, y: 27.31, z: 4.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2509854257316871869}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.207, y: -179.9, z: -0.028}
 --- !u!1 &8521588183357183270
 GameObject:
   m_ObjectHideFlags: 0
