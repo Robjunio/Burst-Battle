@@ -24,9 +24,12 @@ public class PowerUpManager : MonoBehaviour
     {
         PowerUpPrefab = Resources.Load<GameObject>("Prefabs/PowerUp");
 
-        var powerUp1 = GetComponent<Soap>();
+        /*  var powerUp1 = GetComponent<Soap>();
+          var powerUp2 = GetComponent<BathBombHandler>();
+          var powerUp3 = GetComponent<BubbleGun>(); */
+        var powerUp1 = GetComponent<BathBombHandler>();
         var powerUp2 = GetComponent<BathBombHandler>();
-        var powerUp3 = GetComponent<BubbleGun>();
+        var powerUp3 = GetComponent<BathBombHandler>();
 
         powerUps.Add(powerUp1);
         powerUps.Add(powerUp2);

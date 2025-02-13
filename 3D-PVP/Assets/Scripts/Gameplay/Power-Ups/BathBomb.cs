@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class BathBomb : MonoBehaviour
 {
-    GameObject bomb;
+    [SerializeField] GameObject bomb;
+    [SerializeField] GameObject bombVfx;
+    private Vector3 bombPos;
     bool exploded = false;
+    
 
     private void Start()
-    {
-        bomb = Resources.Load<GameObject>("Prefabs/BubbleExplosionParticle");
+    {        
         transform.GetChild(0).name = gameObject.name;
     }
 
@@ -17,7 +19,11 @@ public class BathBomb : MonoBehaviour
     {
         if (exploded) return;
         StartCoroutine(Explode());
-        Instantiate(bomb, transform.position, Quaternion.identity);
+        bombPos = bomb.transform.position;
+        SpawnParticle("BubbleExplosionParticle", bombPos);
+        ReturnParticleToPool(bombVfx);
+
+
     }
 
     IEnumerator Explode()
@@ -31,5 +37,35 @@ public class BathBomb : MonoBehaviour
         yield return null;
         
         gameObject.SetActive(false);
+    }
+
+    private void SpawnParticle(string prefabName, Vector3 position)
+    {
+        // Call the ParticleSysManager's GetParticle method
+        GameObject particle = ParticleSysManager.Instance.GetParticle(prefabName, position);
+
+        if (particle != null)
+        {
+            Debug.Log($"Spawned {prefabName} at {position}");
+        }
+        else
+        {
+            Debug.LogWarning($"Failed to spawn {prefabName}. Pool might be empty.");
+            
+        }
+        
+    }
+
+    private void ReturnParticleToPool(GameObject particle)
+    {
+        if (particle != null)
+        {
+            ParticleSysManager.Instance.ReturnParticle(particle);
+            Debug.Log($"Returned {particle.name} to the pool.");
+        }
+        else
+        {
+            Debug.LogWarning("No particle assigned to return.");
+        }
     }
 }
