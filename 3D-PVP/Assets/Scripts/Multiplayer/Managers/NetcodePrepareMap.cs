@@ -30,11 +30,7 @@ public class NetcodePrepareMap : NetworkBehaviour
             map.transform.localScale = mapTransform.localScale * 10;
             map.Spawn();
         }
-        else if (!map.IsSpawned)
-        {
-            map.transform.localScale = mapTransform.localScale * 10;
-            map.Spawn();
-        }
+        
 
         var players = EventManager.Instance.GetNetcodePlayers();
 
@@ -76,6 +72,7 @@ public class NetcodePrepareMap : NetworkBehaviour
         if (!IsServer) return;
 
         map.Despawn();
+        map = null;
 
         OnVictoryClientRpc();
     }

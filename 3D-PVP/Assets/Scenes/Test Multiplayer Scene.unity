@@ -10956,6 +10956,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8325128856613536211, guid: 5d3973a4bb8c146438df6893caf1a2e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: -7733232110744614026, guid: 5d3973a4bb8c146438df6893caf1a2e5,
         type: 3}
       propertyPath: m_IsActive
