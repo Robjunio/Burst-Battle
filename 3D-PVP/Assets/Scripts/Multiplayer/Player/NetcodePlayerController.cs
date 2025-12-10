@@ -138,8 +138,8 @@ public class NetcodePlayerController : NetworkBehaviour
     IEnumerator FreezeTime()
     {
         yield return null;
-        Time.timeScale = 0.2f;
-        yield return new WaitForSecondsRealtime(0.3f);
+        Time.timeScale = 0.05f;
+        yield return new WaitForSecondsRealtime(0.2f);
         Time.timeScale = 1f;
     }
 
@@ -191,6 +191,8 @@ public class NetcodePlayerController : NetworkBehaviour
         dead = false;
         attackSystem.alive = true;
         movementSystem.Restart();
+
+        gameObject.layer = LayerMask.NameToLayer("Default");
 
         bubbleCount = 0;
 

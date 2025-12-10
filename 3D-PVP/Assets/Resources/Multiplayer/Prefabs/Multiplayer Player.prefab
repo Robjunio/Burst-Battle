@@ -103,7 +103,10 @@ PrefabInstance:
     - {fileID: 5471066525959799239, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
     - {fileID: 4190822192575589088, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
     - {fileID: 2331695333436816853, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 781030802651860256, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 4942671318903065194, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
+    - {fileID: 8321321697330697326, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7449422236062960216, guid: 84e8c2bc2cc34cc47b81cc19876b74b5,
@@ -130,6 +133,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -8464530940838554475}
+    - targetCorrespondingSourceObject: {fileID: 7449422236062960216, guid: 84e8c2bc2cc34cc47b81cc19876b74b5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4397564669012648805}
   m_SourcePrefab: {fileID: 100100000, guid: 84e8c2bc2cc34cc47b81cc19876b74b5, type: 3}
 --- !u!212 &3652469398265471587 stripped
 SpriteRenderer:
@@ -155,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1353145711
+  GlobalObjectIdHash: 552914307
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -251,6 +258,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4397564669012648805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814551774392393908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7dc253c4b536ab4799e8717be9f5319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerController: {fileID: 4393527068096106509}
 --- !u!4 &4031828051671529696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7233421942425211404, guid: 84e8c2bc2cc34cc47b81cc19876b74b5,

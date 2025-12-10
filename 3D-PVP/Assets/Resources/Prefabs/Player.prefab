@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 2331695333436816853}
   - component: {fileID: 8861638651358805345}
   - component: {fileID: 781030802651860256}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &4190822192575589088
 MonoBehaviour:
@@ -462,6 +462,11 @@ PrefabInstance:
     - target: {fileID: 4467415788441329420, guid: 17c1ec3720ed59147b6a55185c651453,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304597991820134247, guid: 17c1ec3720ed59147b6a55185c651453,
+        type: 3}
+      propertyPath: prewarm
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9090057979026915534, guid: 17c1ec3720ed59147b6a55185c651453,
